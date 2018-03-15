@@ -1,0 +1,70 @@
+Plugin ID,CVE,CVSS,Risk,Host,Protocol,Port,Name,Synopsis,Description,Solution,See Also,Plugin Output
+"11936","","","None","192.39.0.2","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g. TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also sometimes possible to guess the version of
+the operating system.","n/a","","
+Remote operating system : Microsoft Windows Server 2012 R2 Datacenter
+Confidence level : 99
+Method : MSRPC
+
+Not all fingerprints could give a match. If you think some or all of
+the following could be used to identify the host's operating system,
+please email them to os-signatures@nessus.org. Be sure to include a
+brief description of the host itself, such as the actual operating
+system or product / model names.
+
+NTP:!:unknown
+SSLcert:!:i/CN:DC1.cwo.nets/CN:DC1.cwo.net
+c360f8a3dddbbe00ac37f90a742f74e9e20c02d7
+
+
+ 
+The remote host is running Microsoft Windows Server 2012 R2 Datacenter"
+"45590","","","None","192.39.0.2","tcp","0","Common Platform Enumeration (CPE)","It is possible to enumerate CPE names that matched on the remote
+system.","By using information obtained from a Nessus scan, this plugin reports
+CPE (Common Platform Enumeration) matches for various hardware and
+software products found on a host. 
+
+Note that if an official CPE is not available for the product, this
+plugin computes the best possible CPE based on the information available
+from the scan.","n/a","http://cpe.mitre.org/","
+The remote operating system matched the following CPE : 
+
+  cpe:/o:microsoft:windows_server_2012:r2::datacenter
+"
+"10881","","","None","192.39.0.6","tcp","22","SSH Protocol Versions Supported","A SSH server is running on the remote host.","This plugin determines the versions of the SSH protocol supported by
+the remote SSH daemon.","n/a","","The remote SSH daemon supports the following versions of the
+SSH protocol :
+
+  - 1.99
+  - 2.0
+
+
+SSHv2 host key fingerprint : dc:52:27:89:f5:93:9a:12:56:de:78:5a:37:e2:c2:04
+"
+"11936","","","None","192.39.0.6","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g. TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also sometimes possible to guess the version of
+the operating system.","n/a","","
+Remote operating system : Linux Kernel 2.6.32-504.12.2.el6.x86_64 on CentOS release 6.6 (Final)
+Confidence level : 100
+Method : LinuxDistribution
+
+ 
+The remote host is running Linux Kernel 2.6.32-504.12.2.el6.x86_64 on CentOS release 6.6 (Final)"
+"45590","","","None","192.39.0.6","tcp","0","Common Platform Enumeration (CPE)","It is possible to enumerate CPE names that matched on the remote
+system.","By using information obtained from a Nessus scan, this plugin reports
+CPE (Common Platform Enumeration) matches for various hardware and
+software products found on a host. 
+
+Note that if an official CPE is not available for the product, this
+plugin computes the best possible CPE based on the information available
+from the scan.","n/a","http://cpe.mitre.org/","
+The remote operating system matched the following CPE : 
+
+  cpe:/o:centos:centos:6:update6
+
+Following application CPE matched on the remote system :
+
+  cpe:/a:openbsd:openssh:5.3 -> OpenBSD  OpenSSH 5.3
+"

@@ -1,0 +1,2569 @@
+Plugin ID,CVE,CVSS,Risk,Host,Protocol,Port,Name,Synopsis,Description,Solution,See Also,Plugin Output
+"10150","","","None","192.39.0.2","udp","137","Windows NetBIOS / SMB Remote Host Information Disclosure","It is possible to obtain the network name of the remote host.","The remote host listens on UDP port 137 or TCP port 445 and replies to
+NetBIOS nbtscan or SMB requests.
+
+Note that this plugin gathers information to be used in other plugins
+but does not itself generate a report.","n/a","","The following 4 NetBIOS names have been gathered :
+
+ DC1              = Computer name
+ CWO              = Workgroup / Domain name
+ CWO              = Domain Controllers
+ DC1              = File Server Service
+
+The remote host has the following MAC address on its adapter :
+
+   00:50:56:86:c8:0a"
+"10287","","","None","192.39.0.2","udp","0","Traceroute Information","It was possible to obtain traceroute information.","Makes a traceroute to the remote host.","n/a","","For your information, here is the traceroute from 10.0.0.200 to 192.39.0.2 : 
+10.0.0.200
+10.0.0.1
+192.39.0.2
+"
+"10394","","","None","192.39.0.2","tcp","445","Microsoft Windows SMB Log In Possible","It is possible to log into the remote host.","The remote host is running a Microsoft Windows operating system or
+Samba, a CIFS/SMB server for Unix. It was possible to log into it
+using one of the following accounts :
+
+- NULL session
+- Guest account
+- Given Credentials","n/a","http://support.microsoft.com/kb/143474
+http://support.microsoft.com/kb/246261","- NULL sessions are enabled on the remote host.
+"
+"10736","","","None","192.39.0.2","tcp","135","DCE Services Enumeration","A DCE/RPC service is running on the remote host.","By sending a Lookup request to the portmapper (TCP 135 or epmapper
+PIPE) it was possible to enumerate the Distributed Computing
+Environment (DCE) services running on the remote port. Using this
+information it is possible to connect and bind to each service by
+sending an RPC request to the remote port/pipe.","n/a","","
+The following DCERPC services are available locally :
+
+Object UUID : 765294ba-60bc-48b8-92e9-89fd77769d91
+UUID : d95afe70-a6d5-4259-822e-2c84da1ddb0d, version 1.0
+Description : Unknown RPC service
+Type : Local RPC service
+Named pipe : WindowsShutdown
+
+Object UUID : 765294ba-60bc-48b8-92e9-89fd77769d91
+UUID : d95afe70-a6d5-4259-822e-2c84da1ddb0d, version 1.0
+Description : Unknown RPC service
+Type : Local RPC service
+Named pipe : WMsgKRpc09CF10
+
+Object UUID : b08669ee-8cb5-43a5-a017-84fe00000000
+UUID : 76f226c3-ec14-4325-8a99-6a46348418af, version 1.0
+Description : Unknown RPC service
+Type : Local RPC service
+Named pipe : WindowsShutdown
+
+Object UUID : b08669ee-8cb5-43a5-a017-84fe00000000
+UUID : 76f226c3-ec14-4325-8a99-6a46348418af, version 1.0
+Description : Unknown RPC service
+Type : Local RPC service
+Named pipe : WMsgKRpc09CF10
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 9b008953-f195-4bf9-bde0-4471971e58ed, version 1.0
+Description : Unknown RPC service
+Type : Local RPC service
+Named pipe : dabrpc
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 9b008953-f195-4bf9-bde0-4471971e58ed, version 1.0
+Description : Unknown RPC service
+Type : Local RPC service
+Named pipe : LRPC-67657a63148ac95685
+
+Object UUID : 5bc1ed07-f5f5-485f-9dfd-6fd0acf9a23c
+UUID : 897e2e5f-93f3-4376-9c9c-fd2277495c27, version 1.0
+Description : Unknown RPC service
+Annotation : Frs2 Service
+Type : Local RPC service
+Named pipe : OLE64C4E6F6648C1BDFA0B448E5E1E4
+
+Object UUID : 3bdb59a0-d736-4d44-9074-c1ee00000001
+UUID : b2507c30-b126-494a-92ac-ee32b6eeb039, version 1.0
+Description : Unknown RPC service
+Type : Local RPC service
+Named pipe : LRPC-0a80c2c249aef8d735
+
+Object UUID : b08669ee-8cb5-43a5-a017-84fe00000001
+UUID : 76f226c3-ec14-4325-8a99-6a46348418af, version 1.0
+Description : Unknown RPC service
+Type : Local RPC service
+Named pipe : WMsgKRpc09DAB1
+
+Object UUID : 2816bf4f-77f3-4e05-9043-dc61b28e5566
+UUID : 906b0ce0-c70b-1067-b317-00dd010662da, version 1.0
+Description : Distributed Transaction Coordinator
+Windows process : msdtc.exe
+Type : Local RPC service
+Named pipe : LRPC-6ee0d2aab0c2304ff9
+
+Object UUID : d20ea953-9b29-496b-a78f-de5c883bb994
+UUID : 906b0ce0-c70b-1067-b317-00dd010662da, version 1.0
+Description : Distributed Transaction Coordinator
+Windows process : msdtc.exe
+Type : Local RPC service
+Named pipe : LRPC-6ee0d2aab0c2304ff9
+
+Object UUID : 9d2bcd6f-90f5-40a9-8f6d-254e189bf771
+UUID : 906b0ce0-c70b-1067-b317-00dd010662da, version 1.0
+Description : Distributed Transaction Coordinator
+Windows process : msdtc.exe
+Type : Local RPC service
+Named pipe : LRPC-6ee0d2aab0c2304ff9
+
+Object UUID : 2e4f8374-f2d3-46a5-a7bc-cbed50f39acb
+UUID : 906b0ce0-c70b-1067-b317-00dd010662da, version 1.0
+Description : Distributed Transaction Coordinator
+Windows process : msdtc.exe
+Type : Local RPC service
+Named pipe : OLE71EE3104AD1D08F79F6DC5E3FDB0
+
+Object UUID : 2e4f8374-f2d3-46a5-a7bc-cbed50f39acb
+UUID : 906b0ce0-c70b-1067-b317-00dd010662da, version 1.0
+Description : Distributed Transaction Coordinator
+Windows process : msdtc.exe
+Type : Local RPC service
+Named pipe : LRPC-a2571cda92d6625f98
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345678-1234-abcd-ef00-0123456789ab, version 1.0
+Description : IPsec Services (Windows XP & 2003)
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : LRPC-b3ca61441853ac17a2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 0b6edbfa-4a24-4fc6-8a23-942b1eca65d1, version 1.0
+Description : Unknown RPC service
+Type : Local RPC service
+Named pipe : LRPC-b3ca61441853ac17a2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : ae33069b-a2a8-46ee-a235-ddfd339be281, version 1.0
+Description : Unknown RPC service
+Type : Local RPC service
+Named pipe : LRPC-b3ca61441853ac17a2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 4a452661-8290-4b36-8fbe-7f4093a94978, version 1.0
+Description : Unknown RPC service
+Type : Local RPC service
+Named pipe : LRPC-b3ca61441853ac17a2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 76f03f96-cdfd-44fc-a22c-64950a001209, version 1.0
+Description : Unknown RPC service
+Type : Local RPC service
+Named pipe : LRPC-b3ca61441853ac17a2
+
+Object UUID : 7364746e-0000-0000-0000-000000000000
+UUID : c9ac6db5-82b7-4e55-ae8a-e464ed7b4277, version 1.0
+Description : Unknown RPC service
+Annotation : Impl friendly name
+Type : Local RPC service
+Named pipe : audit
+
+Object UUID : 7364746e-0000-0000-0000-000000000000
+UUID : c9ac6db5-82b7-4e55-ae8a-e464ed7b4277, version 1.0
+Description : Unknown RPC service
+Annotation : Impl friendly name
+Type : Local RPC service
+Named pipe : securityevent
+
+Object UUID : 7364746e-0000-0000-0000-000000000000
+UUID : c9ac6db5-82b7-4e55-ae8a-e464ed7b4277, version 1.0
+Description : Unknown RPC service
+Annotation : Impl friendly name
+Type : Local RPC service
+Named pipe : LSARPC_ENDPOINT
+
+Object UUID : 7364746e-0000-0000-0000-000000000000
+UUID : c9ac6db5-82b7-4e55-ae8a-e464ed7b4277, version 1.0
+Description : Unknown RPC service
+Annotation : Impl friendly name
+Type : Local RPC service
+Named pipe : lsacap
+
+Object UUID : 7364746e-0000-0000-0000-000000000000
+UUID : c9ac6db5-82b7-4e55-ae8a-e464ed7b4277, version 1.0
+Description : Unknown RPC service
+Annotation : Impl friendly name
+Type : Local RPC service
+Named pipe : LSA_EAS_ENDPOINT
+
+Object UUID : 7364746e-0000-0000-0000-000000000000
+UUID : c9ac6db5-82b7-4e55-ae8a-e464ed7b4277, version 1.0
+Description : Unknown RPC service
+Annotation : Impl friendly name
+Type : Local RPC service
+Named pipe : lsapolicylookup
+
+Object UUID : 7364746e-0000-0000-0000-000000000000
+UUID : c9ac6db5-82b7-4e55-ae8a-e464ed7b4277, version 1.0
+Description : Unknown RPC service
+Annotation : Impl friendly name
+Type : Local RPC service
+Named pipe : lsasspirpc
+
+Object UUID : 7364746e-0000-0000-0000-000000000000
+UUID : c9ac6db5-82b7-4e55-ae8a-e464ed7b4277, version 1.0
+Description : Unknown RPC service
+Annotation : Impl friendly name
+Type : Local RPC service
+Named pipe : protected_storage
+
+Object UUID : 7364746e-0000-0000-0000-000000000000
+UUID : c9ac6db5-82b7-4e55-ae8a-e464ed7b4277, version 1.0
+Description : Unknown RPC service
+Annotation : Impl friendly name
+Type : Local RPC service
+Named pipe : SidKey Local End Point
+
+Object UUID : 7364746e-0000-0000-0000-000000000000
+UUID : c9ac6db5-82b7-4e55-ae8a-e464ed7b4277, version 1.0
+Description : Unknown RPC service
+Annotation : Impl friendly name
+Type : Local RPC service
+Named pipe : samss lpc
+
+Object UUID : 7364746e-0000-0000-0000-000000000000
+UUID : c9ac6db5-82b7-4e55-ae8a-e464ed7b4277, version 1.0
+Description : Unknown RPC service
+Annotation : Impl friendly name
+Type : Local RPC service
+Named pipe : OLE61259303C25E9C64B4F3BEB1651C
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : e3514235-4b06-11d1-ab04-00c04fc2dcd2, version 4.0
+Description : Active Directory Replication Interface
+Windows process : unknown
+Annotation : MS NT Directory DRS Interface
+Type : Local RPC service
+Named pipe : audit
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : e3514235-4b06-11d1-ab04-00c04fc2dcd2, version 4.0
+Description : Active Directory Replication Interface
+Windows process : unknown
+Annotation : MS NT Directory DRS Interface
+Type : Local RPC service
+Named pipe : securityevent
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : e3514235-4b06-11d1-ab04-00c04fc2dcd2, version 4.0
+Description : Active Directory Replication Interface
+Windows process : unknown
+Annotation : MS NT Directory DRS Interface
+Type : Local RPC service
+Named pipe : LSARPC_ENDPOINT
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : e3514235-4b06-11d1-ab04-00c04fc2dcd2, version 4.0
+Description : Active Directory Replication Interface
+Windows process : unknown
+Annotation : MS NT Directory DRS Interface
+Type : Local RPC service
+Named pipe : lsacap
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : e3514235-4b06-11d1-ab04-00c04fc2dcd2, version 4.0
+Description : Active Directory Replication Interface
+Windows process : unknown
+Annotation : MS NT Directory DRS Interface
+Type : Local RPC service
+Named pipe : LSA_EAS_ENDPOINT
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : e3514235-4b06-11d1-ab04-00c04fc2dcd2, version 4.0
+Description : Active Directory Replication Interface
+Windows process : unknown
+Annotation : MS NT Directory DRS Interface
+Type : Local RPC service
+Named pipe : lsapolicylookup
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : e3514235-4b06-11d1-ab04-00c04fc2dcd2, version 4.0
+Description : Active Directory Replication Interface
+Windows process : unknown
+Annotation : MS NT Directory DRS Interface
+Type : Local RPC service
+Named pipe : lsasspirpc
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : e3514235-4b06-11d1-ab04-00c04fc2dcd2, version 4.0
+Description : Active Directory Replication Interface
+Windows process : unknown
+Annotation : MS NT Directory DRS Interface
+Type : Local RPC service
+Named pipe : protected_storage
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : e3514235-4b06-11d1-ab04-00c04fc2dcd2, version 4.0
+Description : Active Directory Replication Interface
+Windows process : unknown
+Annotation : MS NT Directory DRS Interface
+Type : Local RPC service
+Named pipe : SidKey Local End Point
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : e3514235-4b06-11d1-ab04-00c04fc2dcd2, version 4.0
+Description : Active Directory Replication Interface
+Windows process : unknown
+Annotation : MS NT Directory DRS Interface
+Type : Local RPC service
+Named pipe : samss lpc
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : e3514235-4b06-11d1-ab04-00c04fc2dcd2, version 4.0
+Description : Active Directory Replication Interface
+Windows process : unknown
+Annotation : MS NT Directory DRS Interface
+Type : Local RPC service
+Named pipe : OLE61259303C25E9C64B4F3BEB1651C
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : e3514235-4b06-11d1-ab04-00c04fc2dcd2, version 4.0
+Description : Active Directory Replication Interface
+Windows process : unknown
+Annotation : MS NT Directory DRS Interface
+Type : Local RPC service
+Named pipe : NTDS_LPC
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ac, version 1.0
+Description : Security Account Manager
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : audit
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ac, version 1.0
+Description : Security Account Manager
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : securityevent
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ac, version 1.0
+Description : Security Account Manager
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : LSARPC_ENDPOINT
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ac, version 1.0
+Description : Security Account Manager
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : lsacap
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ac, version 1.0
+Description : Security Account Manager
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : LSA_EAS_ENDPOINT
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ac, version 1.0
+Description : Security Account Manager
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : lsapolicylookup
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ac, version 1.0
+Description : Security Account Manager
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : lsasspirpc
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ac, version 1.0
+Description : Security Account Manager
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : protected_storage
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ac, version 1.0
+Description : Security Account Manager
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : SidKey Local End Point
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ac, version 1.0
+Description : Security Account Manager
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : samss lpc
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ac, version 1.0
+Description : Security Account Manager
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : OLE61259303C25E9C64B4F3BEB1651C
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ac, version 1.0
+Description : Security Account Manager
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : NTDS_LPC
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ab, version 0.0
+Description : Local Security Authority
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : audit
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ab, version 0.0
+Description : Local Security Authority
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : securityevent
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ab, version 0.0
+Description : Local Security Authority
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : LSARPC_ENDPOINT
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ab, version 0.0
+Description : Local Security Authority
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : lsacap
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ab, version 0.0
+Description : Local Security Authority
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : LSA_EAS_ENDPOINT
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ab, version 0.0
+Description : Local Security Authority
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : lsapolicylookup
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ab, version 0.0
+Description : Local Security Authority
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : lsasspirpc
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ab, version 0.0
+Description : Local Security Authority
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : protected_storage
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ab, version 0.0
+Description : Local Security Authority
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : SidKey Local End Point
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ab, version 0.0
+Description : Local Security Authority
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : samss lpc
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ab, version 0.0
+Description : Local Security Authority
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : OLE61259303C25E9C64B4F3BEB1651C
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ab, version 0.0
+Description : Local Security Authority
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : NTDS_LPC
+
+Object UUID : 5fc860e0-6f6e-4fc2-83cd-46324f25e90b
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Local RPC service
+Named pipe : audit
+
+Object UUID : 5fc860e0-6f6e-4fc2-83cd-46324f25e90b
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Local RPC service
+Named pipe : securityevent
+
+Object UUID : 5fc860e0-6f6e-4fc2-83cd-46324f25e90b
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Local RPC service
+Named pipe : LSARPC_ENDPOINT
+
+Object UUID : 5fc860e0-6f6e-4fc2-83cd-46324f25e90b
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Local RPC service
+Named pipe : lsacap
+
+Object UUID : 5fc860e0-6f6e-4fc2-83cd-46324f25e90b
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Local RPC service
+Named pipe : LSA_EAS_ENDPOINT
+
+Object UUID : 5fc860e0-6f6e-4fc2-83cd-46324f25e90b
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Local RPC service
+Named pipe : lsapolicylookup
+
+Object UUID : 5fc860e0-6f6e-4fc2-83cd-46324f25e90b
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Local RPC service
+Named pipe : lsasspirpc
+
+Object UUID : 5fc860e0-6f6e-4fc2-83cd-46324f25e90b
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Local RPC service
+Named pipe : protected_storage
+
+Object UUID : 5fc860e0-6f6e-4fc2-83cd-46324f25e90b
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Local RPC service
+Named pipe : SidKey Local End Point
+
+Object UUID : 5fc860e0-6f6e-4fc2-83cd-46324f25e90b
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Local RPC service
+Named pipe : samss lpc
+
+Object UUID : 5fc860e0-6f6e-4fc2-83cd-46324f25e90b
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Local RPC service
+Named pipe : OLE61259303C25E9C64B4F3BEB1651C
+
+Object UUID : 5fc860e0-6f6e-4fc2-83cd-46324f25e90b
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Local RPC service
+Named pipe : NTDS_LPC
+
+Object UUID : 5fc860e0-6f6e-4fc2-83cd-46324f25e90b
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Local RPC service
+Named pipe : NETLOGON_LRPC
+
+Object UUID : 9a81c2bd-a525-471d-a4ed-49907c0b23da
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Local RPC service
+Named pipe : audit
+
+Object UUID : 9a81c2bd-a525-471d-a4ed-49907c0b23da
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Local RPC service
+Named pipe : securityevent
+
+Object UUID : 9a81c2bd-a525-471d-a4ed-49907c0b23da
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Local RPC service
+Named pipe : LSARPC_ENDPOINT
+
+Object UUID : 9a81c2bd-a525-471d-a4ed-49907c0b23da
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Local RPC service
+Named pipe : lsacap
+
+Object UUID : 9a81c2bd-a525-471d-a4ed-49907c0b23da
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Local RPC service
+Named pipe : LSA_EAS_ENDPOINT
+
+Object UUID : 9a81c2bd-a525-471d-a4ed-49907c0b23da
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Local RPC service
+Named pipe : lsapolicylookup
+
+Object UUID : 9a81c2bd-a525-471d-a4ed-49907c0b23da
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Local RPC service
+Named pipe : lsasspirpc
+
+Object UUID : 9a81c2bd-a525-471d-a4ed-49907c0b23da
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Local RPC service
+Named pipe : protected_storage
+
+Object UUID : 9a81c2bd-a525-471d-a4ed-49907c0b23da
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Local RPC service
+Named pipe : SidKey Local End Point
+
+Object UUID : 9a81c2bd-a525-471d-a4ed-49907c0b23da
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Local RPC service
+Named pipe : samss lpc
+
+Object UUID : 9a81c2bd-a525-471d-a4ed-49907c0b23da
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Local RPC service
+Named pipe : OLE61259303C25E9C64B4F3BEB1651C
+
+Object UUID : 9a81c2bd-a525-471d-a4ed-49907c0b23da
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Local RPC service
+Named pipe : NTDS_LPC
+
+Object UUID : 9a81c2bd-a525-471d-a4ed-49907c0b23da
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Local RPC service
+Named pipe : NETLOGON_LRPC
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345678-1234-abcd-ef00-01234567cffb, version 1.0
+Description : Network Logon Service
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : audit
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345678-1234-abcd-ef00-01234567cffb, version 1.0
+Description : Network Logon Service
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : securityevent
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345678-1234-abcd-ef00-01234567cffb, version 1.0
+Description : Network Logon Service
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : LSARPC_ENDPOINT
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345678-1234-abcd-ef00-01234567cffb, version 1.0
+Description : Network Logon Service
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : lsacap
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345678-1234-abcd-ef00-01234567cffb, version 1.0
+Description : Network Logon Service
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : LSA_EAS_ENDPOINT
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345678-1234-abcd-ef00-01234567cffb, version 1.0
+Description : Network Logon Service
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : lsapolicylookup
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345678-1234-abcd-ef00-01234567cffb, version 1.0
+Description : Network Logon Service
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : lsasspirpc
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345678-1234-abcd-ef00-01234567cffb, version 1.0
+Description : Network Logon Service
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : protected_storage
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345678-1234-abcd-ef00-01234567cffb, version 1.0
+Description : Network Logon Service
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : SidKey Local End Point
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345678-1234-abcd-ef00-01234567cffb, version 1.0
+Description : Network Logon Service
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : samss lpc
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345678-1234-abcd-ef00-01234567cffb, version 1.0
+Description : Network Logon Service
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : OLE61259303C25E9C64B4F3BEB1651C
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345678-1234-abcd-ef00-01234567cffb, version 1.0
+Description : Network Logon Service
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : NTDS_LPC
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345678-1234-abcd-ef00-01234567cffb, version 1.0
+Description : Network Logon Service
+Windows process : lsass.exe
+Type : Local RPC service
+Named pipe : NETLOGON_LRPC
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : f2c9b409-c1c9-4100-8639-d8ab1486694a, version 1.0
+Description : Unknown RPC service
+Annotation : Witness Client Upcall Server
+Type : Local RPC service
+Named pipe : DNSResolver
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : f2c9b409-c1c9-4100-8639-d8ab1486694a, version 1.0
+Description : Unknown RPC service
+Annotation : Witness Client Upcall Server
+Type : Local RPC service
+Named pipe : LRPC-d291de7b6fce1ae9db
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : eb081a0d-10ee-478a-a1dd-50995283e7a8, version 3.0
+Description : Unknown RPC service
+Annotation : Witness Client Test Interface
+Type : Local RPC service
+Named pipe : DNSResolver
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : eb081a0d-10ee-478a-a1dd-50995283e7a8, version 3.0
+Description : Unknown RPC service
+Annotation : Witness Client Test Interface
+Type : Local RPC service
+Named pipe : LRPC-d291de7b6fce1ae9db
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 7f1343fe-50a9-4927-a778-0c5859517bac, version 1.0
+Description : Unknown RPC service
+Annotation : DfsDs service
+Type : Local RPC service
+Named pipe : DNSResolver
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 7f1343fe-50a9-4927-a778-0c5859517bac, version 1.0
+Description : Unknown RPC service
+Annotation : DfsDs service
+Type : Local RPC service
+Named pipe : LRPC-d291de7b6fce1ae9db
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : dd490425-5325-4565-b774-7e27d6c09c24, version 1.0
+Description : Unknown RPC service
+Annotation : Base Firewall Engine API
+Type : Local RPC service
+Named pipe : LRPC-33e644b3d5cdb797b2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 7f9d11bf-7fb9-436b-a812-b2d50c5d4c03, version 1.0
+Description : Unknown RPC service
+Annotation : Fw APIs
+Type : Local RPC service
+Named pipe : LRPC-33e644b3d5cdb797b2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 7f9d11bf-7fb9-436b-a812-b2d50c5d4c03, version 1.0
+Description : Unknown RPC service
+Annotation : Fw APIs
+Type : Local RPC service
+Named pipe : LRPC-908a9606bb157e5133
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : f47433c3-3e9d-4157-aad4-83aa1f5c2d4c, version 1.0
+Description : Unknown RPC service
+Annotation : Fw APIs
+Type : Local RPC service
+Named pipe : LRPC-33e644b3d5cdb797b2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : f47433c3-3e9d-4157-aad4-83aa1f5c2d4c, version 1.0
+Description : Unknown RPC service
+Annotation : Fw APIs
+Type : Local RPC service
+Named pipe : LRPC-908a9606bb157e5133
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 2fb92682-6599-42dc-ae13-bd2ca89bd11c, version 1.0
+Description : Unknown RPC service
+Annotation : Fw APIs
+Type : Local RPC service
+Named pipe : LRPC-33e644b3d5cdb797b2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 2fb92682-6599-42dc-ae13-bd2ca89bd11c, version 1.0
+Description : Unknown RPC service
+Annotation : Fw APIs
+Type : Local RPC service
+Named pipe : LRPC-908a9606bb157e5133
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 7ea70bcf-48af-4f6a-8968-6a440754d5fa, version 1.0
+Description : Unknown RPC service
+Annotation : NSI server endpoint
+Type : Local RPC service
+Named pipe : OLE9CB57954F5014EF014842D4407BB
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 7ea70bcf-48af-4f6a-8968-6a440754d5fa, version 1.0
+Description : Unknown RPC service
+Annotation : NSI server endpoint
+Type : Local RPC service
+Named pipe : LRPC-b29eaabcc83fab3d17
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 3473dd4d-2e88-4006-9cba-22570909dd10, version 5.0
+Description : Unknown RPC service
+Annotation : WinHttp Auto-Proxy Service
+Type : Local RPC service
+Named pipe : OLE9CB57954F5014EF014842D4407BB
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 3473dd4d-2e88-4006-9cba-22570909dd10, version 5.0
+Description : Unknown RPC service
+Annotation : WinHttp Auto-Proxy Service
+Type : Local RPC service
+Named pipe : LRPC-b29eaabcc83fab3d17
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 3473dd4d-2e88-4006-9cba-22570909dd10, version 5.0
+Description : Unknown RPC service
+Annotation : WinHttp Auto-Proxy Service
+Type : Local RPC service
+Named pipe : W32TIME_ALT
+
+Object UUID : 666f7270-6c69-7365-0000-000000000000
+UUID : c9ac6db5-82b7-4e55-ae8a-e464ed7b4277, version 1.0
+Description : Unknown RPC service
+Annotation : Impl friendly name
+Type : Local RPC service
+Named pipe : IUserProfile2
+
+Object UUID : 6c637067-6569-746e-0000-000000000000
+UUID : c9ac6db5-82b7-4e55-ae8a-e464ed7b4277, version 1.0
+Description : Unknown RPC service
+Annotation : Impl friendly name
+Type : Local RPC service
+Named pipe : IUserProfile2
+
+Object UUID : 6c637067-6569-746e-0000-000000000000
+UUID : c9ac6db5-82b7-4e55-ae8a-e464ed7b4277, version 1.0
+Description : Unknown RPC service
+Annotation : Impl friendly name
+Type : Local RPC service
+Named pipe : OLE2BF1996508A9F572C2BAF23EE8BF
+
+Object UUID : 24d1f7c7-76af-4f28-9ccd-7f6cb6468601
+UUID : 2eb08e3e-639f-4fba-97b1-14f878961076, version 1.0
+Description : Unknown RPC service
+Annotation : Group Policy RPC Interface
+Type : Local RPC service
+Named pipe : LRPC-fa06a52d5abebd3a13
+
+Object UUID : 736e6573-0000-0000-0000-000000000000
+UUID : c9ac6db5-82b7-4e55-ae8a-e464ed7b4277, version 1.0
+Description : Unknown RPC service
+Annotation : Impl friendly name
+Type : Local RPC service
+Named pipe : IUserProfile2
+
+Object UUID : 736e6573-0000-0000-0000-000000000000
+UUID : c9ac6db5-82b7-4e55-ae8a-e464ed7b4277, version 1.0
+Description : Unknown RPC service
+Annotation :"
+"10736","","","None","192.39.0.2","tcp","445","DCE Services Enumeration","A DCE/RPC service is running on the remote host.","By sending a Lookup request to the portmapper (TCP 135 or epmapper
+PIPE) it was possible to enumerate the Distributed Computing
+Environment (DCE) services running on the remote port. Using this
+information it is possible to connect and bind to each service by
+sending an RPC request to the remote port/pipe.","n/a","","
+The following DCERPC services are available remotely :
+
+Object UUID : 765294ba-60bc-48b8-92e9-89fd77769d91
+UUID : d95afe70-a6d5-4259-822e-2c84da1ddb0d, version 1.0
+Description : Unknown RPC service
+Type : Remote RPC service
+Named pipe : \PIPE\InitShutdown
+Netbios name : \\DC1
+
+Object UUID : b08669ee-8cb5-43a5-a017-84fe00000000
+UUID : 76f226c3-ec14-4325-8a99-6a46348418af, version 1.0
+Description : Unknown RPC service
+Type : Remote RPC service
+Named pipe : \PIPE\InitShutdown
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 9b008953-f195-4bf9-bde0-4471971e58ed, version 1.0
+Description : Unknown RPC service
+Type : Remote RPC service
+Named pipe : \pipe\LSM_API_service
+Netbios name : \\DC1
+
+Object UUID : 7364746e-0000-0000-0000-000000000000
+UUID : c9ac6db5-82b7-4e55-ae8a-e464ed7b4277, version 1.0
+Description : Unknown RPC service
+Annotation : Impl friendly name
+Type : Remote RPC service
+Named pipe : \pipe\lsass
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : e3514235-4b06-11d1-ab04-00c04fc2dcd2, version 4.0
+Description : Active Directory Replication Interface
+Windows process : unknown
+Annotation : MS NT Directory DRS Interface
+Type : Remote RPC service
+Named pipe : \pipe\lsass
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : e3514235-4b06-11d1-ab04-00c04fc2dcd2, version 4.0
+Description : Active Directory Replication Interface
+Windows process : unknown
+Annotation : MS NT Directory DRS Interface
+Type : Remote RPC service
+Named pipe : \pipe\bd22c93365ab5e83
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ac, version 1.0
+Description : Security Account Manager
+Windows process : lsass.exe
+Type : Remote RPC service
+Named pipe : \pipe\lsass
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ac, version 1.0
+Description : Security Account Manager
+Windows process : lsass.exe
+Type : Remote RPC service
+Named pipe : \pipe\bd22c93365ab5e83
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ab, version 0.0
+Description : Local Security Authority
+Windows process : lsass.exe
+Type : Remote RPC service
+Named pipe : \pipe\lsass
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ab, version 0.0
+Description : Local Security Authority
+Windows process : lsass.exe
+Type : Remote RPC service
+Named pipe : \pipe\bd22c93365ab5e83
+Netbios name : \\DC1
+
+Object UUID : 5fc860e0-6f6e-4fc2-83cd-46324f25e90b
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Remote RPC service
+Named pipe : \pipe\lsass
+Netbios name : \\DC1
+
+Object UUID : 5fc860e0-6f6e-4fc2-83cd-46324f25e90b
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Remote RPC service
+Named pipe : \pipe\bd22c93365ab5e83
+Netbios name : \\DC1
+
+Object UUID : 9a81c2bd-a525-471d-a4ed-49907c0b23da
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Remote RPC service
+Named pipe : \pipe\lsass
+Netbios name : \\DC1
+
+Object UUID : 9a81c2bd-a525-471d-a4ed-49907c0b23da
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Remote RPC service
+Named pipe : \pipe\bd22c93365ab5e83
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345678-1234-abcd-ef00-01234567cffb, version 1.0
+Description : Network Logon Service
+Windows process : lsass.exe
+Type : Remote RPC service
+Named pipe : \pipe\lsass
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345678-1234-abcd-ef00-01234567cffb, version 1.0
+Description : Network Logon Service
+Windows process : lsass.exe
+Type : Remote RPC service
+Named pipe : \pipe\bd22c93365ab5e83
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 7f1343fe-50a9-4927-a778-0c5859517bac, version 1.0
+Description : Unknown RPC service
+Annotation : DfsDs service
+Type : Remote RPC service
+Named pipe : \PIPE\wkssvc
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 3473dd4d-2e88-4006-9cba-22570909dd10, version 5.0
+Description : Unknown RPC service
+Annotation : WinHttp Auto-Proxy Service
+Type : Remote RPC service
+Named pipe : \PIPE\W32TIME_ALT
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 1ff70682-0a51-30e8-076d-740be8cee98b, version 1.0
+Description : Scheduler Service
+Windows process : svchost.exe
+Type : Remote RPC service
+Named pipe : \PIPE\atsvc
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 378e52b0-c0a9-11cf-822d-00aa0051e40f, version 1.0
+Description : Scheduler Service
+Windows process : svchost.exe
+Type : Remote RPC service
+Named pipe : \PIPE\atsvc
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 86d35949-83c9-4044-b424-db363231fd0c, version 1.0
+Description : Unknown RPC service
+Type : Remote RPC service
+Named pipe : \PIPE\atsvc
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 3a9ef155-691d-4449-8d05-09ad57031823, version 1.0
+Description : Unknown RPC service
+Type : Remote RPC service
+Named pipe : \PIPE\atsvc
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 98716d03-89ac-44c7-bb8c-285824e51c4a, version 1.0
+Description : Unknown RPC service
+Annotation : XactSrv service
+Type : Remote RPC service
+Named pipe : \PIPE\atsvc
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 1a0d010f-1c33-432c-b0f5-8cf4e8053099, version 1.0
+Description : Unknown RPC service
+Annotation : IdSegSrv service
+Type : Remote RPC service
+Named pipe : \PIPE\atsvc
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 552d076a-cb29-4e44-8b6a-d15e59e2c0af, version 1.0
+Description : Unknown RPC service
+Annotation : IP Transition Configuration endpoint
+Type : Remote RPC service
+Named pipe : \PIPE\atsvc
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 552d076a-cb29-4e44-8b6a-d15e59e2c0af, version 1.0
+Description : Unknown RPC service
+Annotation : IP Transition Configuration endpoint
+Type : Remote RPC service
+Named pipe : \PIPE\srvsvc
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 2e6035b2-e8f1-41a7-a044-656b439c4c34, version 1.0
+Description : Unknown RPC service
+Annotation : Proxy Manager provider server endpoint
+Type : Remote RPC service
+Named pipe : \PIPE\atsvc
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 2e6035b2-e8f1-41a7-a044-656b439c4c34, version 1.0
+Description : Unknown RPC service
+Annotation : Proxy Manager provider server endpoint
+Type : Remote RPC service
+Named pipe : \PIPE\srvsvc
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : c36be077-e14b-4fe9-8abc-e856ef4f048b, version 1.0
+Description : Unknown RPC service
+Annotation : Proxy Manager client server endpoint
+Type : Remote RPC service
+Named pipe : \PIPE\atsvc
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : c36be077-e14b-4fe9-8abc-e856ef4f048b, version 1.0
+Description : Unknown RPC service
+Annotation : Proxy Manager client server endpoint
+Type : Remote RPC service
+Named pipe : \PIPE\srvsvc
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : c49a5a70-8a7f-4e70-ba16-1e8f1f193ef1, version 1.0
+Description : Unknown RPC service
+Annotation : Adh APIs
+Type : Remote RPC service
+Named pipe : \PIPE\atsvc
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : c49a5a70-8a7f-4e70-ba16-1e8f1f193ef1, version 1.0
+Description : Unknown RPC service
+Annotation : Adh APIs
+Type : Remote RPC service
+Named pipe : \PIPE\srvsvc
+Netbios name : \\DC1
+
+Object UUID : 73736573-6f69-656e-6e76-000000000000
+UUID : c9ac6db5-82b7-4e55-ae8a-e464ed7b4277, version 1.0
+Description : Unknown RPC service
+Annotation : Impl friendly name
+Type : Remote RPC service
+Named pipe : \PIPE\atsvc
+Netbios name : \\DC1
+
+Object UUID : 73736573-6f69-656e-6e76-000000000000
+UUID : c9ac6db5-82b7-4e55-ae8a-e464ed7b4277, version 1.0
+Description : Unknown RPC service
+Annotation : Impl friendly name
+Type : Remote RPC service
+Named pipe : \PIPE\srvsvc
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 30b044a5-a225-43f0-b3a4-e060df91f9c1, version 1.0
+Description : Unknown RPC service
+Type : Remote RPC service
+Named pipe : \PIPE\atsvc
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 30b044a5-a225-43f0-b3a4-e060df91f9c1, version 1.0
+Description : Unknown RPC service
+Type : Remote RPC service
+Named pipe : \PIPE\srvsvc
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 30b044a5-a225-43f0-b3a4-e060df91f9c1, version 1.0
+Description : Unknown RPC service
+Type : Remote RPC service
+Named pipe : \pipe\SessEnvPublicRpc
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : f6beaff7-1e19-4fbb-9f8f-b89e2018337c, version 1.0
+Description : Unknown RPC service
+Annotation : Event log TCPIP
+Type : Remote RPC service
+Named pipe : \pipe\eventlog
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 30adc50c-5cbc-46ce-9a0e-91914789e23c, version 1.0
+Description : Unknown RPC service
+Annotation : NRP server endpoint
+Type : Remote RPC service
+Named pipe : \pipe\eventlog
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 3c4728c5-f0ab-448b-bda1-6ce01eb0a6d5, version 1.0
+Description : DHCP Client Service
+Windows process : svchost.exe
+Annotation : DHCP Client LRPC Endpoint
+Type : Remote RPC service
+Named pipe : \pipe\eventlog
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 3c4728c5-f0ab-448b-bda1-6ce01eb0a6d6, version 1.0
+Description : Unknown RPC service
+Annotation : DHCPv6 Client LRPC Endpoint
+Type : Remote RPC service
+Named pipe : \pipe\eventlog
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : abfb6ca3-0c5e-4734-9285-0aee72fe8d1c, version 1.0
+Description : Unknown RPC service
+Annotation : Wcm Service
+Type : Remote RPC service
+Named pipe : \pipe\eventlog
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 2d98a740-581d-41b9-aa0d-a88b9d5ce938, version 1.0
+Description : Unknown RPC service
+Type : Remote RPC service
+Named pipe : \pipe\LSM_API_service
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 8bfc3be1-6def-4e2d-af74-7c47cd0ade4a, version 1.0
+Description : Unknown RPC service
+Type : Remote RPC service
+Named pipe : \pipe\LSM_API_service
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 1b37ca91-76b1-4f5e-a3c7-2abfc61f2bb0, version 1.0
+Description : Unknown RPC service
+Type : Remote RPC service
+Named pipe : \pipe\LSM_API_service
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : c605f9fb-f0a3-4e2a-a073-73560f8d9e3e, version 1.0
+Description : Unknown RPC service
+Type : Remote RPC service
+Named pipe : \pipe\LSM_API_service
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 0d3e2735-cea0-4ecc-a9e2-41a2d81aed4e, version 1.0
+Description : Unknown RPC service
+Type : Remote RPC service
+Named pipe : \pipe\LSM_API_service
+Netbios name : \\DC1
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 697dcda9-3ba9-4eb2-9247-e11f1901b0d2, version 1.0
+Description : Unknown RPC service
+Type : Remote RPC service
+Named pipe : \pipe\LSM_API_service
+Netbios name : \\DC1
+
+"
+"10736","","","None","192.39.0.2","tcp","49155","DCE Services Enumeration","A DCE/RPC service is running on the remote host.","By sending a Lookup request to the portmapper (TCP 135 or epmapper
+PIPE) it was possible to enumerate the Distributed Computing
+Environment (DCE) services running on the remote port. Using this
+information it is possible to connect and bind to each service by
+sending an RPC request to the remote port/pipe.","n/a","","
+The following DCERPC services are available on TCP port 49155 :
+
+Object UUID : 7364746e-0000-0000-0000-000000000000
+UUID : c9ac6db5-82b7-4e55-ae8a-e464ed7b4277, version 1.0
+Description : Unknown RPC service
+Annotation : Impl friendly name
+Type : Remote RPC service
+TCP Port : 49155
+IP : 192.39.0.2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : e3514235-4b06-11d1-ab04-00c04fc2dcd2, version 4.0
+Description : Active Directory Replication Interface
+Windows process : unknown
+Annotation : MS NT Directory DRS Interface
+Type : Remote RPC service
+TCP Port : 49155
+IP : 192.39.0.2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ac, version 1.0
+Description : Security Account Manager
+Windows process : lsass.exe
+Type : Remote RPC service
+TCP Port : 49155
+IP : 192.39.0.2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ab, version 0.0
+Description : Local Security Authority
+Windows process : lsass.exe
+Type : Remote RPC service
+TCP Port : 49155
+IP : 192.39.0.2
+
+Object UUID : 5fc860e0-6f6e-4fc2-83cd-46324f25e90b
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Remote RPC service
+TCP Port : 49155
+IP : 192.39.0.2
+
+Object UUID : 9a81c2bd-a525-471d-a4ed-49907c0b23da
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Remote RPC service
+TCP Port : 49155
+IP : 192.39.0.2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345678-1234-abcd-ef00-01234567cffb, version 1.0
+Description : Network Logon Service
+Windows process : lsass.exe
+Type : Remote RPC service
+TCP Port : 49155
+IP : 192.39.0.2
+
+"
+"10736","","","None","192.39.0.2","tcp","49180","DCE Services Enumeration","A DCE/RPC service is running on the remote host.","By sending a Lookup request to the portmapper (TCP 135 or epmapper
+PIPE) it was possible to enumerate the Distributed Computing
+Environment (DCE) services running on the remote port. Using this
+information it is possible to connect and bind to each service by
+sending an RPC request to the remote port/pipe.","n/a","","
+The following DCERPC services are available on TCP port 49180 :
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 367abb81-9844-35f1-ad32-98f038001003, version 2.0
+Description : Service Control Manager
+Windows process : svchost.exe
+Type : Remote RPC service
+TCP Port : 49180
+IP : 192.39.0.2
+
+"
+"10736","","","None","192.39.0.2","tcp","49154","DCE Services Enumeration","A DCE/RPC service is running on the remote host.","By sending a Lookup request to the portmapper (TCP 135 or epmapper
+PIPE) it was possible to enumerate the Distributed Computing
+Environment (DCE) services running on the remote port. Using this
+information it is possible to connect and bind to each service by
+sending an RPC request to the remote port/pipe.","n/a","","
+The following DCERPC services are available on TCP port 49154 :
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 86d35949-83c9-4044-b424-db363231fd0c, version 1.0
+Description : Unknown RPC service
+Type : Remote RPC service
+TCP Port : 49154
+IP : 192.39.0.2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 3a9ef155-691d-4449-8d05-09ad57031823, version 1.0
+Description : Unknown RPC service
+Type : Remote RPC service
+TCP Port : 49154
+IP : 192.39.0.2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 98716d03-89ac-44c7-bb8c-285824e51c4a, version 1.0
+Description : Unknown RPC service
+Annotation : XactSrv service
+Type : Remote RPC service
+TCP Port : 49154
+IP : 192.39.0.2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 1a0d010f-1c33-432c-b0f5-8cf4e8053099, version 1.0
+Description : Unknown RPC service
+Annotation : IdSegSrv service
+Type : Remote RPC service
+TCP Port : 49154
+IP : 192.39.0.2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 552d076a-cb29-4e44-8b6a-d15e59e2c0af, version 1.0
+Description : Unknown RPC service
+Annotation : IP Transition Configuration endpoint
+Type : Remote RPC service
+TCP Port : 49154
+IP : 192.39.0.2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 2e6035b2-e8f1-41a7-a044-656b439c4c34, version 1.0
+Description : Unknown RPC service
+Annotation : Proxy Manager provider server endpoint
+Type : Remote RPC service
+TCP Port : 49154
+IP : 192.39.0.2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : c36be077-e14b-4fe9-8abc-e856ef4f048b, version 1.0
+Description : Unknown RPC service
+Annotation : Proxy Manager client server endpoint
+Type : Remote RPC service
+TCP Port : 49154
+IP : 192.39.0.2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : c49a5a70-8a7f-4e70-ba16-1e8f1f193ef1, version 1.0
+Description : Unknown RPC service
+Annotation : Adh APIs
+Type : Remote RPC service
+TCP Port : 49154
+IP : 192.39.0.2
+
+Object UUID : 73736573-6f69-656e-6e76-000000000000
+UUID : c9ac6db5-82b7-4e55-ae8a-e464ed7b4277, version 1.0
+Description : Unknown RPC service
+Annotation : Impl friendly name
+Type : Remote RPC service
+TCP Port : 49154
+IP : 192.39.0.2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 30b044a5-a225-43f0-b3a4-e060df91f9c1, version 1.0
+Description : Unknown RPC service
+Type : Remote RPC service
+TCP Port : 49154
+IP : 192.39.0.2
+
+"
+"10736","","","None","192.39.0.2","tcp","49188","DCE Services Enumeration","A DCE/RPC service is running on the remote host.","By sending a Lookup request to the portmapper (TCP 135 or epmapper
+PIPE) it was possible to enumerate the Distributed Computing
+Environment (DCE) services running on the remote port. Using this
+information it is possible to connect and bind to each service by
+sending an RPC request to the remote port/pipe.","n/a","","
+The following DCERPC services are available on TCP port 49188 :
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 50abc2a4-574d-40b3-9d66-ee4fd5fba076, version 5.0
+Description : DNS Server
+Windows process : dns.exe
+Type : Remote RPC service
+TCP Port : 49188
+IP : 192.39.0.2
+
+"
+"10736","","","None","192.39.0.2","tcp","64023","DCE Services Enumeration","A DCE/RPC service is running on the remote host.","By sending a Lookup request to the portmapper (TCP 135 or epmapper
+PIPE) it was possible to enumerate the Distributed Computing
+Environment (DCE) services running on the remote port. Using this
+information it is possible to connect and bind to each service by
+sending an RPC request to the remote port/pipe.","n/a","","
+The following DCERPC services are available on TCP port 64023 :
+
+Object UUID : 5bc1ed07-f5f5-485f-9dfd-6fd0acf9a23c
+UUID : 897e2e5f-93f3-4376-9c9c-fd2277495c27, version 1.0
+Description : Unknown RPC service
+Annotation : Frs2 Service
+Type : Remote RPC service
+TCP Port : 64023
+IP : 192.39.0.2
+
+"
+"10736","","","None","192.39.0.2","tcp","49153","DCE Services Enumeration","A DCE/RPC service is running on the remote host.","By sending a Lookup request to the portmapper (TCP 135 or epmapper
+PIPE) it was possible to enumerate the Distributed Computing
+Environment (DCE) services running on the remote port. Using this
+information it is possible to connect and bind to each service by
+sending an RPC request to the remote port/pipe.","n/a","","
+The following DCERPC services are available on TCP port 49153 :
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : f6beaff7-1e19-4fbb-9f8f-b89e2018337c, version 1.0
+Description : Unknown RPC service
+Annotation : Event log TCPIP
+Type : Remote RPC service
+TCP Port : 49153
+IP : 192.39.0.2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 30adc50c-5cbc-46ce-9a0e-91914789e23c, version 1.0
+Description : Unknown RPC service
+Annotation : NRP server endpoint
+Type : Remote RPC service
+TCP Port : 49153
+IP : 192.39.0.2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 3c4728c5-f0ab-448b-bda1-6ce01eb0a6d5, version 1.0
+Description : DHCP Client Service
+Windows process : svchost.exe
+Annotation : DHCP Client LRPC Endpoint
+Type : Remote RPC service
+TCP Port : 49153
+IP : 192.39.0.2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 3c4728c5-f0ab-448b-bda1-6ce01eb0a6d6, version 1.0
+Description : Unknown RPC service
+Annotation : DHCPv6 Client LRPC Endpoint
+Type : Remote RPC service
+TCP Port : 49153
+IP : 192.39.0.2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : abfb6ca3-0c5e-4734-9285-0aee72fe8d1c, version 1.0
+Description : Unknown RPC service
+Annotation : Wcm Service
+Type : Remote RPC service
+TCP Port : 49153
+IP : 192.39.0.2
+
+"
+"10736","","","None","192.39.0.2","tcp","49158","DCE Services Enumeration","A DCE/RPC service is running on the remote host.","By sending a Lookup request to the portmapper (TCP 135 or epmapper
+PIPE) it was possible to enumerate the Distributed Computing
+Environment (DCE) services running on the remote port. Using this
+information it is possible to connect and bind to each service by
+sending an RPC request to the remote port/pipe.","n/a","","
+The following DCERPC services are available on TCP port 49158 :
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ac, version 1.0
+Description : Security Account Manager
+Windows process : lsass.exe
+Type : Remote RPC service
+TCP Port : 49158
+IP : 192.39.0.2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345778-1234-abcd-ef00-0123456789ab, version 0.0
+Description : Local Security Authority
+Windows process : lsass.exe
+Type : Remote RPC service
+TCP Port : 49158
+IP : 192.39.0.2
+
+Object UUID : 5fc860e0-6f6e-4fc2-83cd-46324f25e90b
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Remote RPC service
+TCP Port : 49158
+IP : 192.39.0.2
+
+Object UUID : 9a81c2bd-a525-471d-a4ed-49907c0b23da
+UUID : 0b1c2170-5732-4e0e-8cd3-d9b16f3b84d7, version 0.0
+Description : Unknown RPC service
+Annotation : RemoteAccessCheck
+Type : Remote RPC service
+TCP Port : 49158
+IP : 192.39.0.2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345678-1234-abcd-ef00-01234567cffb, version 1.0
+Description : Network Logon Service
+Windows process : lsass.exe
+Type : Remote RPC service
+TCP Port : 49158
+IP : 192.39.0.2
+
+"
+"10736","","","None","192.39.0.2","tcp","49159","DCE Services Enumeration","A DCE/RPC service is running on the remote host.","By sending a Lookup request to the portmapper (TCP 135 or epmapper
+PIPE) it was possible to enumerate the Distributed Computing
+Environment (DCE) services running on the remote port. Using this
+information it is possible to connect and bind to each service by
+sending an RPC request to the remote port/pipe.","n/a","","
+The following DCERPC services are available on TCP port 49159 :
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 12345678-1234-abcd-ef00-0123456789ab, version 1.0
+Description : IPsec Services (Windows XP & 2003)
+Windows process : lsass.exe
+Type : Remote RPC service
+TCP Port : 49159
+IP : 192.39.0.2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 0b6edbfa-4a24-4fc6-8a23-942b1eca65d1, version 1.0
+Description : Unknown RPC service
+Type : Remote RPC service
+TCP Port : 49159
+IP : 192.39.0.2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : ae33069b-a2a8-46ee-a235-ddfd339be281, version 1.0
+Description : Unknown RPC service
+Type : Remote RPC service
+TCP Port : 49159
+IP : 192.39.0.2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 4a452661-8290-4b36-8fbe-7f4093a94978, version 1.0
+Description : Unknown RPC service
+Type : Remote RPC service
+TCP Port : 49159
+IP : 192.39.0.2
+
+Object UUID : 00000000-0000-0000-0000-000000000000
+UUID : 76f03f96-cdfd-44fc-a22c-64950a001209, version 1.0
+Description : Unknown RPC service
+Type : Remote RPC service
+TCP Port : 49159
+IP : 192.39.0.2
+
+"
+"10736","","","None","192.39.0.2","tcp","49152","DCE Services Enumeration","A DCE/RPC service is running on the remote host.","By sending a Lookup request to the portmapper (TCP 135 or epmapper
+PIPE) it was possible to enumerate the Distributed Computing
+Environment (DCE) services running on the remote port. Using this
+information it is possible to connect and bind to each service by
+sending an RPC request to the remote port/pipe.","n/a","","
+The following DCERPC services are available on TCP port 49152 :
+
+Object UUID : 765294ba-60bc-48b8-92e9-89fd77769d91
+UUID : d95afe70-a6d5-4259-822e-2c84da1ddb0d, version 1.0
+Description : Unknown RPC service
+Type : Remote RPC service
+TCP Port : 49152
+IP : 192.39.0.2
+
+"
+"10785","","","None","192.39.0.2","tcp","445","Microsoft Windows SMB NativeLanManager Remote System Information Disclosure","It is possible to obtain information about the remote operating
+system.","It is possible to obtain the remote operating system name and version
+(Windows and/or Samba) by sending an authentication request to port
+139 or 445.","n/a","","The remote Operating System is : Windows Server 2012 R2 Datacenter 9600
+The remote native lan manager is : Windows Server 2012 R2 Datacenter 6.3
+The remote SMB Domain Name is : CWO
+"
+"10863","","","None","192.39.0.2","tcp","3389","SSL Certificate Information","This plugin displays the SSL certificate.","This plugin connects to every SSL-related port and attempts to 
+extract and dump the X.509 certificate.","n/a","","Subject Name: 
+
+Common Name: DC1.cwo.net
+
+Issuer Name: 
+
+Common Name: DC1.cwo.net
+
+Serial Number: 63 6F 05 54 46 9B FE A5 47 A3 45 9C B1 7A DB 3A 
+
+Version: 3
+
+Signature Algorithm: SHA-1 With RSA Encryption
+
+Not Valid Before: Dec 06 03:05:49 2017 GMT
+Not Valid After: Jun 07 03:05:49 2018 GMT
+
+Public Key Info: 
+
+Algorithm: RSA Encryption
+Key Length: 2048 bits
+Public Key: 00 B4 D8 7F 79 88 2F 6A 0A D4 38 9F 4F E3 C4 F9 8F B6 60 1A 
+            6A D0 5B D4 1D 10 CB 1B F3 09 F3 9B 9D 55 4D E8 86 BA F5 60 
+            0C 6F 0B E7 6E CB D8 14 77 FD 54 0F F3 ED D4 8C AB 2D 2F EF 
+            03 FA 6D 11 32 79 4F C5 9C 67 FA A6 B8 67 D1 15 C5 12 7B 06 
+            D9 B1 EA 17 C8 EF 56 8E E5 23 7F 68 D9 F5 F9 DE 55 63 58 EA 
+            4A F7 AC D9 23 65 90 D8 A3 5C 1A 97 6A EC 9C 87 F7 0C A2 F6 
+            54 37 42 CB A0 5C 2B AB C4 26 D7 6B ED 7E FF 7D 18 9E 55 6C 
+            85 1A 48 69 6C CA 43 55 1C 6C 91 0D 1F 72 D3 98 10 E5 60 E6 
+            00 FE 30 23 DA 2B 33 9F F9 75 E0 57 01 A9 F6 D3 6E A1 39 24 
+            2B 0E DF C4 5B CF 55 3C 8F 70 CA 82 07 C0 38 5D B4 B2 20 E3 
+            3B 8B 5A FC 4F 65 17 F7 6A 1A A4 C9 2F C0 DF 2C 1F F5 DF CB 
+            A5 33 5A BD 07 BB 2E DD 2D EC 2A 09 16 79 05 20 AE 18 25 FD 
+            0E CC AD 73 2D 46 69 33 D8 09 F0 D3 F6 F6 32 47 1F 
+Exponent: 01 00 01 
+
+Signature Length: 256 bytes / 2048 bits
+Signature: 00 4E 1D 83 25 DD DB 32 1B 67 A1 7E BD D7 57 AD 81 F0 82 D8 
+           03 DA 89 30 2C 89 97 C2 8D 82 B7 8E BD 76 EE 26 95 34 6C 63 
+           CA 28 65 EE A1 C6 CB D1 4F D2 60 3C 4D 7F DF 11 74 FE 00 B7 
+           A5 D0 F8 DC 1B 09 60 7A 91 2E 15 0A 07 B8 F8 0C 49 B3 21 BB 
+           84 C1 9D 7F 1A 96 A0 CD E6 D9 EE 8C 02 71 09 BC 7D 11 07 E0 
+           12 C0 C3 DB 50 7F 87 E9 E2 EA 2B 3C 83 19 65 F1 A2 E3 19 AF 
+           08 86 60 11 53 5A DB 38 E9 71 AC 53 AA D6 F5 90 67 75 BB 06 
+           D6 2F F8 DC 7C EF FA E8 A3 D6 5B 81 86 F6 CE 52 DF 5C E9 8E 
+           40 ED 4C CD 6B 3D D0 CB 35 A4 AF 90 FF F2 D4 8E 4D 98 E4 DA 
+           B7 91 63 5C 13 91 0C FB 66 E5 64 C8 58 E7 03 7A E8 E0 34 6D 
+           0D 69 18 F8 45 18 FD E9 B7 12 48 B6 85 5C 20 94 05 7A 82 EB 
+           C4 3A 51 D1 9B D8 DB 32 2A D8 15 FA BC 70 4A CD A3 64 5A 0E 
+           6D 3E 1E 50 BA 09 BD 89 57 CB 54 88 1B 33 94 C0 2C 
+
+Extension: Extended Key Usage (2.5.29.37)
+Critical: 0
+Purpose#1: Web Server Authentication (1.3.6.1.5.5.7.3.1)
+
+
+Extension: Key Usage (2.5.29.15)
+Critical: 0
+Key Usage: Key Encipherment, Data Encipherment
+
+
+"
+"10884","","","None","192.39.0.2","udp","123","Network Time Protocol (NTP) Server Detection","An NTP server with an insecure configuration is listening on the
+remote host.","An NTP server with an insecure configuration is listening on port 123.
+It provides information about its version, current date, current time,
+and it may also provide system information.","n/a","http://www.ntp.org","
+  Version : unknown
+"
+"10940","","","None","192.39.0.2","tcp","3389","Windows Terminal Services Enabled","The remote Windows host has Terminal Services enabled.","Terminal Services allows a Windows user to remotely obtain a graphical
+login (and therefore act as a local user on the remote host).
+
+If an attacker gains a valid login and password, this service could be
+used to gain further access on the remote host.  An attacker may also
+use this service to mount a dictionary attack against the remote host
+to try to log in remotely.
+
+Note that RDP (the Remote Desktop Protocol) is vulnerable to
+Man-in-the-middle attacks, making it easy for attackers to steal the
+credentials of legitimate users by impersonating the Windows server.","Disable Terminal Services if you do not use it, and do not allow this
+service to run across the Internet.","",""
+"11002","","","None","192.39.0.2","udp","53","DNS Server Detection","A DNS server is listening on the remote host.","The remote service is a Domain Name System (DNS) server, which
+provides a mapping between hostnames and IP addresses.","Disable this service if it is not needed or restrict access to
+internal hosts only if the service is available externally.","http://en.wikipedia.org/wiki/Domain_Name_System",""
+"11002","","","None","192.39.0.2","tcp","53","DNS Server Detection","A DNS server is listening on the remote host.","The remote service is a Domain Name System (DNS) server, which
+provides a mapping between hostnames and IP addresses.","Disable this service if it is not needed or restrict access to
+internal hosts only if the service is available externally.","http://en.wikipedia.org/wiki/Domain_Name_System",""
+"11011","","","None","192.39.0.2","tcp","445","Microsoft Windows SMB Service Detection","A file / print sharing service is listening on the remote host.","The remote service understands the CIFS (Common Internet File System)
+or Server Message Block (SMB) protocol, used to provide shared access
+to files, printers, etc between nodes on a network.","n/a","","
+A CIFS server is running on this port.
+"
+"11011","","","None","192.39.0.2","tcp","139","Microsoft Windows SMB Service Detection","A file / print sharing service is listening on the remote host.","The remote service understands the CIFS (Common Internet File System)
+or Server Message Block (SMB) protocol, used to provide shared access
+to files, printers, etc between nodes on a network.","n/a","","
+An SMB server is running on this port.
+"
+"11936","","","None","192.39.0.2","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g. TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also sometimes possible to guess the version of
+the operating system.","n/a","","
+Remote operating system : Microsoft Windows Server 2012 R2 Datacenter
+Confidence level : 99
+Method : MSRPC
+
+Not all fingerprints could give a match. If you think some or all of
+the following could be used to identify the host's operating system,
+please email them to os-signatures@nessus.org. Be sure to include a
+brief description of the host itself, such as the actual operating
+system or product / model names.
+
+NTP:!:unknown
+SSLcert:!:i/CN:DC1.cwo.nets/CN:DC1.cwo.net
+c360f8a3dddbbe00ac37f90a742f74e9e20c02d7
+
+
+ 
+The remote host is running Microsoft Windows Server 2012 R2 Datacenter"
+"18405","CVE-2005-1794","5.1","Medium","192.39.0.2","tcp","3389","Microsoft Windows Remote Desktop Protocol Server Man-in-the-Middle Weakness","It may be possible to get access to the remote host.","The remote version of the Remote Desktop Protocol Server (Terminal
+Service) is vulnerable to a man-in-the-middle (MiTM) attack. The RDP 
+client makes no effort to validate the identity of the server when 
+setting up encryption. An attacker with the ability to intercept 
+traffic from the RDP server can establish encryption with the client 
+and server without being detected. A MiTM attack of this nature would 
+allow the attacker to obtain any sensitive information transmitted, 
+including authentication credentials.
+
+This flaw exists because the RDP server stores a hard-coded RSA
+private key in the mstlsapi.dll library. Any local user with
+access to this file (on any Windows system) can retrieve the
+key and use it for this attack.","- Force the use of SSL as a transport layer for this service if
+supported, or/and
+
+- Select the 'Allow connections only from computers running Remote 
+Desktop with Network Level Authentication' setting if it is available.","http://www.oxid.it/downloads/rdp-gbu.pdf
+http://www.nessus.org/u?e2628096
+http://technet.microsoft.com/en-us/library/cc782610.aspx",""
+"19506","","","None","192.39.0.2","tcp","0","Nessus Scan Information","Information about the Nessus scan.","This script displays, for each tested host, information about the scan
+itself :
+
+ - The version of the plugin set
+ - The type of scanner (Nessus or Nessus Home)
+ - The version of the Nessus Engine
+ - The port scanner(s) used
+ - The port range scanned
+ - Whether credentialed or third-party patch management
+   checks are possible
+ - The date of the scan
+ - The duration of the scan
+ - The number of hosts scanned in parallel
+ - The number of checks done in parallel","n/a","","Information about this scan : 
+
+Nessus version : 5.2.7 (Nessus 6.4.0 is available - consider upgrading)
+
+Plugin feed version : 201508270515
+Scanner edition used : Nessus
+Scan policy used : full_win
+Scanner IP : 10.0.0.200
+
+WARNING : No port scanner was enabled during the scan. This may
+lead to incomplete results
+
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report Verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 256
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2014/6/1 13:24 Central Standard Time
+Scan duration : 2388 sec
+"
+"20094","","","None","192.39.0.2","tcp","0","VMware Virtual Machine Detection","The remote host seems to be a VMware virtual machine.","According to the MAC address of its network adapter, the remote host
+is a VMware virtual machine. 
+
+Since it is physically accessible through the network, ensure that its
+configuration matches your organization's security policy.","n/a","",""
+"20870","","","None","192.39.0.2","tcp","389","LDAP Server Detection","There is an LDAP server active on the remote host.","The remote host is running a Lightweight Directory Access Protocol, or
+LDAP, server.  LDAP is a protocol for providing access to directory
+services over TCP/IP.","n/a","http://en.wikipedia.org/wiki/LDAP",""
+"20870","","","None","192.39.0.2","tcp","3268","LDAP Server Detection","There is an LDAP server active on the remote host.","The remote host is running a Lightweight Directory Access Protocol, or
+LDAP, server.  LDAP is a protocol for providing access to directory
+services over TCP/IP.","n/a","http://en.wikipedia.org/wiki/LDAP",""
+"21643","","","None","192.39.0.2","tcp","3389","SSL Cipher Suites Supported","The remote service encrypts communications using SSL.","This script detects which SSL ciphers are supported by the remote
+service for encrypting communications.","n/a","http://www.openssl.org/docs/apps/ciphers.html","
+Here is the list of SSL ciphers supported by the remote server :
+Each group is reported per SSL Version.
+
+SSL Version : TLSv12
+  High Strength Ciphers (>= 112-bit key)
+      ECDHE-RSA-AES128-SHA         Kx=ECDH        Au=RSA      Enc=AES-CBC(128)         Mac=SHA1   
+      ECDHE-RSA-AES256-SHA         Kx=ECDH        Au=RSA      Enc=AES-CBC(256)         Mac=SHA1   
+      DES-CBC3-SHA                 Kx=RSA         Au=RSA      Enc=3DES-CBC(168)        Mac=SHA1   
+      AES128-SHA                   Kx=RSA         Au=RSA      Enc=AES-CBC(128)         Mac=SHA1   
+      AES256-SHA                   Kx=RSA         Au=RSA      Enc=AES-CBC(256)         Mac=SHA1   
+      RC4-MD5                      Kx=RSA         Au=RSA      Enc=RC4(128)             Mac=MD5    
+      RC4-SHA                      Kx=RSA         Au=RSA      Enc=RC4(128)             Mac=SHA1   
+      ECDHE-RSA-AES128-SHA256      Kx=ECDHE       Au=RSA      Enc=AES-CBC(128)         Mac=SHA256  
+      RSA-AES128-SHA256            Kx=RSA         Au=RSA      Enc=AES-CBC(128)         Mac=SHA256  
+      RSA-AES256-SHA256            Kx=RSA         Au=RSA      Enc=AES-CBC(256)         Mac=SHA256  
+
+
+SSL Version : TLSv11
+  High Strength Ciphers (>= 112-bit key)
+      ECDHE-RSA-AES128-SHA         Kx=ECDH        Au=RSA      Enc=AES-CBC(128)         Mac=SHA1   
+      ECDHE-RSA-AES256-SHA         Kx=ECDH        Au=RSA      Enc=AES-CBC(256)         Mac=SHA1   
+      DES-CBC3-SHA                 Kx=RSA         Au=RSA      Enc=3DES-CBC(168)        Mac=SHA1   
+      AES128-SHA                   Kx=RSA         Au=RSA      Enc=AES-CBC(128)         Mac=SHA1   
+      AES256-SHA                   Kx=RSA         Au=RSA      Enc=AES-CBC(256)         Mac=SHA1   
+      RC4-MD5                      Kx=RSA         Au=RSA      Enc=RC4(128)             Mac=MD5    
+      RC4-SHA                      Kx=RSA         Au=RSA      Enc=RC4(128)             Mac=SHA1   
+
+
+SSL Version : TLSv1
+  High Strength Ciphers (>= 112-bit key)
+      ECDHE-RSA-AES128-SHA         Kx=ECDH        Au=RSA      Enc=AES-CBC(128)         Mac=SHA1   
+      ECDHE-RSA-AES256-SHA         Kx=ECDH        Au=RSA      Enc=AES-CBC(256)         Mac=SHA1   
+      DES-CBC3-SHA                 Kx=RSA         Au=RSA      Enc=3DES-CBC(168)        Mac=SHA1   
+      AES128-SHA                   Kx=RSA         Au=RSA      Enc=AES-CBC(128)         Mac=SHA1   
+      AES256-SHA                   Kx=RSA         Au=RSA      Enc=AES-CBC(256)         Mac=SHA1   
+      RC4-MD5                      Kx=RSA         Au=RSA      Enc=RC4(128)             Mac=MD5    
+      RC4-SHA                      Kx=RSA         Au=RSA      Enc=RC4(128)             Mac=SHA1   
+
+The fields above are :
+
+  {OpenSSL ciphername}
+  Kx={key exchange}
+  Au={authentication}
+  Enc={symmetric encryption method}
+  Mac={message authentication code}
+  {export flag}
+"
+"21745","","","None","192.39.0.2","tcp","0","Authentication Failure - Local Checks Not Run","The local security checks are disabled.","Local security checks have been disabled for this host because either
+the credentials supplied in the scan policy did not allow Nessus to
+log into it or some other problem occurred.","Address the problem(s) so that local security checks are enabled.","","- It was not possible to log into the remote host via smb (invalid credentials).
+"
+"24786","","","None","192.39.0.2","tcp","0","Nessus Windows Scan Not Performed with Admin Privileges","The Nessus scan of this host may be incomplete due to insufficient
+privileges provided.","The Nessus scanner testing the remote host has been given SMB
+credentials to log into the remote host, however these credentials do
+not have administrative privileges. 
+
+Typically, when Nessus performs a patch audit, it logs into the remote
+host and reads the version of the DLLs on the remote host to determine
+if a given patch has been applied or not.  This is the method Microsoft
+recommends to determine if a patch has been applied. 
+
+If your Nessus scanner does not have administrative privileges when
+doing a scan, then Nessus has to fall back to perform a patch audit
+through the registry which may lead to false positives (especially when
+using third-party patch auditing tools) or to false negatives (not all
+patches can be detected through the registry).","Reconfigure your scanner to use credentials with administrative
+privileges.","","
+It was not possible to connect to '\\DC1\ADMIN$' with the supplied credentials.
+"
+"25220","","","None","192.39.0.2","tcp","0","TCP/IP Timestamps Supported","The remote service implements TCP timestamps.","The remote host implements TCP timestamps, as defined by RFC1323.  A
+side effect of this feature is that the uptime of the remote host can
+sometimes be computed.","n/a","http://www.ietf.org/rfc/rfc1323.txt",""
+"25701","","","None","192.39.0.2","tcp","389","LDAP Crafted Search Request Server Information Disclosure","It is possible to discover information about the remote LDAP server.","By sending a search request with a filter set to 'objectClass=*', it
+is possible to extract information about the remote LDAP server.","n/a","","[+]-namingContexts:
+   |  DC=cwo,DC=net
+   |  CN=Configuration,DC=cwo,DC=net
+   |  CN=Schema,CN=Configuration,DC=cwo,DC=net
+   |  DC=DomainDnsZones,DC=cwo,DC=net
+   |  DC=ForestDnsZones,DC=cwo,DC=net
+[+]-currentTime:
+   |  20180119003349.0Z
+[+]-subschemaSubentry:
+   |  CN=Aggregate,CN=Schema,CN=Configuration,DC=cwo,DC=net
+[+]-dsServiceName:
+   |  CN=NTDS Settings,CN=DC1,CN=Servers,CN=Default-First-Site-Name,CN=Sites,CN=Configuration,DC=cwo,DC=net
+[+]-namingContexts:
+   |  DC=cwo,DC=net
+   |  CN=Configuration,DC=cwo,DC=net
+   |  CN=Schema,CN=Configuration,DC=cwo,DC=net
+   |  DC=DomainDnsZones,DC=cwo,DC=net
+   |  DC=ForestDnsZones,DC=cwo,DC=net
+[+]-defaultNamingContext:
+   |  DC=cwo,DC=net
+[+]-schemaNamingContext:
+   |  CN=Schema,CN=Configuration,DC=cwo,DC=net
+[+]-configurationNamingContext:
+   |  CN=Configuration,DC=cwo,DC=net
+[+]-rootDomainNamingContext:
+   |  DC=cwo,DC=net
+[+]-supportedControl:
+   |  1.2.840.113556.1.4.319
+   |  1.2.840.113556.1.4.801
+   |  1.2.840.113556.1.4.473
+   |  1.2.840.113556.1.4.528
+   |  1.2.840.113556.1.4.417
+   |  1.2.840.113556.1.4.619
+   |  1.2.840.113556.1.4.841
+   |  1.2.840.113556.1.4.529
+   |  1.2.840.113556.1.4.805
+   |  1.2.840.113556.1.4.521
+   |  1.2.840.113556.1.4.970
+   |  1.2.840.113556.1.4.1338
+   |  1.2.840.113556.1.4.474
+   |  1.2.840.113556.1.4.1339
+   |  1.2.840.113556.1.4.1340
+   |  1.2.840.113556.1.4.1413
+   |  2.16.840.1.113730.3.4.9
+   |  2.16.840.1.113730.3.4.10
+   |  1.2.840.113556.1.4.1504
+   |  1.2.840.113556.1.4.1852
+   |  1.2.840.113556.1.4.802
+   |  1.2.840.113556.1.4.1907
+   |  1.2.840.113556.1.4.1948
+   |  1.2.840.113556.1.4.1974
+   |  1.2.840.113556.1.4.1341
+   |  1.2.840.113556.1.4.2026
+   |  1.2.840.113556.1.4.2064
+   |  1.2.840.113556.1.4.2065
+   |  1.2.840.113556.1.4.2066
+   |  1.2.840.113556.1.4.2090
+   |  1.2.840.113556.1.4.2205
+   |  1.2.840.113556.1.4.2204
+   |  1.2.840.113556.1.4.2206
+   |  1.2.840.113556.1.4.2211
+   |  1.2.840.113556.1.4.2239
+   |  1.2.840.113556.1.4.2255
+   |  1.2.840.113556.1.4.2256
+[+]-supportedLDAPVersion:
+   |  3
+   |  2
+[+]-supportedLDAPPolicies:
+   |  MaxPoolThreads
+   |  MaxPercentDirSyncRequests
+   |  MaxDatagramRecv
+   |  MaxReceiveBuffer
+   |  InitRecvTimeout
+   |  MaxConnections
+   |  MaxConnIdleTime
+   |  MaxPageSize
+   |  MaxBatchReturnMessages
+   |  MaxQueryDuration
+   |  MaxTempTableSize
+   |  MaxResultSetSize
+   |  MinResultSets
+   |  MaxResultSetsPerConn
+   |  MaxNotificationPerConn
+   |  MaxValRange
+   |  MaxValRangeTransitive
+   |  ThreadMemoryLimit
+   |  SystemMemoryLimitPercent
+[+]-highestCommittedUSN:
+   |  713916
+[+]-supportedSASLMechanisms:
+   |  GSSAPI
+   |  GSS-SPNEGO
+   |  EXTERNAL
+   |  DIGEST-MD5
+[+]-dnsHostName:
+   |  DC1.cwo.net
+[+]-ldapServiceName:
+   |  cwo.net:dc1$@CWO.NET
+[+]-serverName:
+   |  CN=DC1,CN=Servers,CN=Default-First-Site-Name,CN=Sites,CN=Configuration,DC=cwo,DC=net
+[+]-supportedCapabilities:
+   |  1.2.840.113556.1.4.800
+   |  1.2.840.113556.1.4.1670
+   |  1.2.840.113556.1.4.1791
+   |  1.2.840.113556.1.4.1935
+   |  1.2.840.113556.1.4.2080
+   |  1.2.840.113556.1.4.2237
+[+]-isSynchronized:
+   |  TRUE
+[+]-isGlobalCatalogReady:
+   |  TRUE
+[+]-domainFunctionality:
+   |  6
+[+]-forestFunctionality:
+   |  6
+[+]-domainControllerFunctionality:
+   |  6
+"
+"25701","","","None","192.39.0.2","tcp","3268","LDAP Crafted Search Request Server Information Disclosure","It is possible to discover information about the remote LDAP server.","By sending a search request with a filter set to 'objectClass=*', it
+is possible to extract information about the remote LDAP server.","n/a","","[+]-namingContexts:
+   |  DC=cwo,DC=net
+   |  CN=Configuration,DC=cwo,DC=net
+   |  CN=Schema,CN=Configuration,DC=cwo,DC=net
+   |  DC=DomainDnsZones,DC=cwo,DC=net
+   |  DC=ForestDnsZones,DC=cwo,DC=net
+[+]-currentTime:
+   |  20180119003349.0Z
+[+]-subschemaSubentry:
+   |  CN=Aggregate,CN=Schema,CN=Configuration,DC=cwo,DC=net
+[+]-dsServiceName:
+   |  CN=NTDS Settings,CN=DC1,CN=Servers,CN=Default-First-Site-Name,CN=Sites,CN=Configuration,DC=cwo,DC=net
+[+]-namingContexts:
+   |  DC=cwo,DC=net
+   |  CN=Configuration,DC=cwo,DC=net
+   |  CN=Schema,CN=Configuration,DC=cwo,DC=net
+   |  DC=DomainDnsZones,DC=cwo,DC=net
+   |  DC=ForestDnsZones,DC=cwo,DC=net
+[+]-defaultNamingContext:
+   |  DC=cwo,DC=net
+[+]-schemaNamingContext:
+   |  CN=Schema,CN=Configuration,DC=cwo,DC=net
+[+]-configurationNamingContext:
+   |  CN=Configuration,DC=cwo,DC=net
+[+]-rootDomainNamingContext:
+   |  DC=cwo,DC=net
+[+]-supportedControl:
+   |  1.2.840.113556.1.4.319
+   |  1.2.840.113556.1.4.801
+   |  1.2.840.113556.1.4.473
+   |  1.2.840.113556.1.4.528
+   |  1.2.840.113556.1.4.417
+   |  1.2.840.113556.1.4.619
+   |  1.2.840.113556.1.4.841
+   |  1.2.840.113556.1.4.529
+   |  1.2.840.113556.1.4.805
+   |  1.2.840.113556.1.4.521
+   |  1.2.840.113556.1.4.970
+   |  1.2.840.113556.1.4.1338
+   |  1.2.840.113556.1.4.474
+   |  1.2.840.113556.1.4.1339
+   |  1.2.840.113556.1.4.1340
+   |  1.2.840.113556.1.4.1413
+   |  2.16.840.1.113730.3.4.9
+   |  2.16.840.1.113730.3.4.10
+   |  1.2.840.113556.1.4.1504
+   |  1.2.840.113556.1.4.1852
+   |  1.2.840.113556.1.4.802
+   |  1.2.840.113556.1.4.1907
+   |  1.2.840.113556.1.4.1948
+   |  1.2.840.113556.1.4.1974
+   |  1.2.840.113556.1.4.1341
+   |  1.2.840.113556.1.4.2026
+   |  1.2.840.113556.1.4.2064
+   |  1.2.840.113556.1.4.2065
+   |  1.2.840.113556.1.4.2066
+   |  1.2.840.113556.1.4.2090
+   |  1.2.840.113556.1.4.2205
+   |  1.2.840.113556.1.4.2204
+   |  1.2.840.113556.1.4.2206
+   |  1.2.840.113556.1.4.2211
+   |  1.2.840.113556.1.4.2239
+   |  1.2.840.113556.1.4.2255
+   |  1.2.840.113556.1.4.2256
+[+]-supportedLDAPVersion:
+   |  3
+   |  2
+[+]-supportedLDAPPolicies:
+   |  MaxPoolThreads
+   |  MaxPercentDirSyncRequests
+   |  MaxDatagramRecv
+   |  MaxReceiveBuffer
+   |  InitRecvTimeout
+   |  MaxConnections
+   |  MaxConnIdleTime
+   |  MaxPageSize
+   |  MaxBatchReturnMessages
+   |  MaxQueryDuration
+   |  MaxTempTableSize
+   |  MaxResultSetSize
+   |  MinResultSets
+   |  MaxResultSetsPerConn
+   |  MaxNotificationPerConn
+   |  MaxValRange
+   |  MaxValRangeTransitive
+   |  ThreadMemoryLimit
+   |  SystemMemoryLimitPercent
+[+]-highestCommittedUSN:
+   |  713916
+[+]-supportedSASLMechanisms:
+   |  GSSAPI
+   |  GSS-SPNEGO
+   |  EXTERNAL
+   |  DIGEST-MD5
+[+]-dnsHostName:
+   |  DC1.cwo.net
+[+]-ldapServiceName:
+   |  cwo.net:dc1$@CWO.NET
+[+]-serverName:
+   |  CN=DC1,CN=Servers,CN=Default-First-Site-Name,CN=Sites,CN=Configuration,DC=cwo,DC=net
+[+]-supportedCapabilities:
+   |  1.2.840.113556.1.4.800
+   |  1.2.840.113556.1.4.1670
+   |  1.2.840.113556.1.4.1791
+   |  1.2.840.113556.1.4.1935
+   |  1.2.840.113556.1.4.2080
+   |  1.2.840.113556.1.4.2237
+[+]-isSynchronized:
+   |  TRUE
+[+]-isGlobalCatalogReady:
+   |  TRUE
+[+]-domainFunctionality:
+   |  6
+[+]-forestFunctionality:
+   |  6
+[+]-domainControllerFunctionality:
+   |  6
+"
+"26917","","","None","192.39.0.2","tcp","445","Microsoft Windows SMB Registry : Nessus Cannot Access the Windows Registry","Nessus is not able to access the remote Windows Registry.","It was not possible to connect to PIPE\winreg on the remote host.
+
+If you intend to use Nessus to perform registry-based checks, the
+registry checks will not work because the 'Remote Registry Access'
+service (winreg) has been disabled on the remote host or can not be
+connected to with the supplied credentials.","n/a","","Could not connect to the registry because:
+Could not connect to \winreg"
+"30218","","2.6","Low","192.39.0.2","tcp","3389","Terminal Services Encryption Level is not FIPS-140 Compliant","The remote host is not FIPS-140 compliant.","The encryption setting used by the remote Terminal Services service
+is not FIPS-140 compliant.","Change RDP encryption level to :
+
+ 4. FIPS Compliant","","
+The terminal services encryption level is set to :
+
+2. Medium (Client Compatible)"
+"35450","CVE-2006-0987","5.0","Medium","192.39.0.2","udp","53","DNS Server Spoofed Request Amplification DDoS","The remote DNS server could be used in a distributed denial of service
+attack.","The remote DNS server answers to any request.  It is possible to query
+the name servers (NS) of the root zone ('.') and get an answer that
+is bigger than the original request.  By spoofing the source IP
+address, a remote attacker can leverage this 'amplification' to launch
+a denial of service attack against a third-party host using the remote
+DNS server.","Restrict access to your DNS server from public network or reconfigure
+it to reject such queries.","https://isc.sans.edu/diary/DNS+queries+for+/5713","
+The DNS query was 17 bytes long, the answer is 449 bytes long.
+"
+"35705","","","None","192.39.0.2","tcp","0","SMB Registry : Starting the Registry Service during the scan failed","The registry service could not be enabled for the duration of the scan.","To perform a full credentialed scan, Nessus needs the ability to connect to
+the remote registry service (RemoteRegistry).
+
+Nessus attempted to start the service but failed, therefore some local checks
+will not be performed against the remote host.","n/a","","
+The following error occurred :
+
+OpenSCManager() failed"
+"35716","","","None","192.39.0.2","tcp","0","Ethernet Card Manufacturer Detection","The manufacturer can be deduced from the Ethernet OUI.","Each ethernet MAC address starts with a 24-bit 'Organizationally 
+Unique Identifier'.
+These OUI are registered by IEEE.","n/a","http://standards.ieee.org/faqs/OUI.html
+http://standards.ieee.org/regauth/oui/index.shtml","
+The following card manufacturers were identified :
+
+00:50:56:86:c8:0a : VMware, Inc.
+"
+"42980","","","None","192.39.0.2","tcp","3389","SSL Certificate Expiry - Future Validity","There is a problem with the SSL certificate associated with the
+remote service.","The SSL certificate for the remote SSL-enabled service is not yet
+valid.","Make sure that system clock on the Nessus Server host is not out of
+sync.  If it's not, then purchase or generate a new SSL certificate to
+replace the existing one.","","
+The SSL certificate is not valid before Dec  6 03:05:49 2017 GMT :
+
+  Subject          : CN=DC1.cwo.net
+  Issuer           : CN=DC1.cwo.net
+  Not valid before : Dec  6 03:05:49 2017 GMT
+  Not valid after  : 
+"
+"43829","","","None","192.39.0.2","tcp","88","Kerberos Information Disclosure","The remote Kerberos server is leaking information.","Nessus was able to retrieve the realm name and/or server time of the
+remote Kerberos server.","n/a","","
+Nessus gathered the following information :
+
+  Server time  : 2018-01-19 00:49:44 UTC
+  Realm        : CWO.NET
+"
+"45410","","","None","192.39.0.2","tcp","3389","SSL Certificate commonName Mismatch","The SSL certificate commonName does not match the host name.","This service presents an SSL certificate for which the 'commonName'
+(CN) does not match the host name on which the service listens.","If the machine has several names, make sure that users connect to the
+service through the DNS host name that matches the common name in the
+certificate.","","
+The host name known by Nessus is :
+
+  dc1
+
+The Common Name in the certificate is :
+
+  dc1.cwo.net
+"
+"45411","","5.0","Medium","192.39.0.2","tcp","3389","SSL Certificate with Wrong Hostname","The SSL certificate for this service is for a different host.","The commonName (CN) of the SSL certificate presented on this service
+is for a different machine.","Purchase or generate a proper certificate for this service.","","
+The identities known by Nessus are :
+
+  192.39.0.2
+  192.39.0.2
+
+The Common Name in the certificate is :
+
+  DC1.cwo.net
+"
+"45590","","","None","192.39.0.2","tcp","0","Common Platform Enumeration (CPE)","It is possible to enumerate CPE names that matched on the remote
+system.","By using information obtained from a Nessus scan, this plugin reports
+CPE (Common Platform Enumeration) matches for various hardware and
+software products found on a host. 
+
+Note that if an official CPE is not available for the product, this
+plugin computes the best possible CPE based on the information available
+from the scan.","n/a","http://cpe.mitre.org/","
+The remote operating system matched the following CPE : 
+
+  cpe:/o:microsoft:windows_server_2012:r2::datacenter
+"
+"51192","","6.4","Medium","192.39.0.2","tcp","3389","SSL Certificate Cannot Be Trusted","The SSL certificate for this service cannot be trusted.","The server's X.509 certificate does not have a signature from a known
+public certificate authority.  This situation can occur in three
+different ways, each of which results in a break in the chain below
+which certificates cannot be trusted. 
+
+First, the top of the certificate chain sent by the server might not
+be descended from a known public certificate authority.  This can
+occur either when the top of the chain is an unrecognized, self-signed
+certificate, or when intermediate certificates are missing that would
+connect the top of the certificate chain to a known public certificate
+authority. 
+
+Second, the certificate chain may contain a certificate that is not
+valid at the time of the scan.  This can occur either when the scan
+occurs before one of the certificate's 'notBefore' dates, or after one
+of the certificate's 'notAfter' dates. 
+
+Third, the certificate chain may contain a signature that either
+didn't match the certificate's information, or could not be verified.  
+Bad signatures can be fixed by getting the certificate with
+the bad signature to be re-signed by its issuer.  Signatures that
+could not be verified are the result of the certificate's issuer using
+a signing algorithm that Nessus either does not support or does not
+recognize. 
+
+If the remote host is a public host in production, any break in the
+chain makes it more difficult for users to verify the authenticity and 
+identity of the web server. This could make it easier to carry out 
+man-in-the-middle attacks against the remote host.","Purchase or generate a proper certificate for this service.","","
+The following certificate was part of the certificate chain
+sent by the remote host, but is not yet valid :
+
+|-Subject    : CN=DC1.cwo.net
+|-Not Before : Dec 06 03:05:49 2017 GMT
+
+The following certificate was at the top of the certificate
+chain sent by the remote host, but is signed by an unknown
+certificate authority :
+
+|-Subject : CN=DC1.cwo.net
+|-Issuer  : CN=DC1.cwo.net
+"
+"51891","","","None","192.39.0.2","tcp","3389","SSL Session Resume Supported","The remote host allows resuming SSL sessions.","This script detects whether a host allows resuming SSL sessions by
+performing a full SSL handshake to receive a session ID, and then
+reconnecting with the previously used session ID.  If the server
+accepts the session ID in the second connection, the server maintains
+a cache of sessions that can be resumed.","n/a","","
+This port supports resuming TLSv1 sessions.
+"
+"54615","","","None","192.39.0.2","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : general-purpose
+Confidence level : 99
+"
+"56984","","","None","192.39.0.2","tcp","3389","SSL / TLS Versions Supported","The remote service encrypts communications.","This script detects which SSL and TLS versions are supported by the
+remote service for encrypting communications.","n/a","","
+This port supports TLSv1.0/TLSv1.1/TLSv1.2.
+"
+"57041","","","None","192.39.0.2","tcp","3389","SSL Perfect Forward Secrecy Cipher Suites Supported","The remote service supports the use of SSL Perfect Forward Secrecy
+ciphers, which maintain confidentiality even if the key is stolen.","The remote host supports the use of SSL ciphers that offer Perfect
+Forward Secrecy (PFS) encryption.  These cipher suites ensure that
+recorded SSL traffic cannot be broken at a future date if the server's
+private key is compromised.","n/a","http://www.openssl.org/docs/apps/ciphers.html
+http://en.wikipedia.org/wiki/Diffie-Hellman_key_exchange
+http://en.wikipedia.org/wiki/Perfect_forward_secrecy","
+Here is the list of SSL PFS ciphers supported by the remote server :
+
+  High Strength Ciphers (>= 112-bit key)
+
+    TLSv1
+      ECDHE-RSA-AES128-SHA         Kx=ECDH        Au=RSA      Enc=AES-CBC(128)         Mac=SHA1   
+      ECDHE-RSA-AES256-SHA         Kx=ECDH        Au=RSA      Enc=AES-CBC(256)         Mac=SHA1   
+      ECDHE-RSA-AES128-SHA256      Kx=ECDHE       Au=RSA      Enc=AES-CBC(128)         Mac=SHA256  
+
+The fields above are :
+
+  {OpenSSL ciphername}
+  Kx={key exchange}
+  Au={authentication}
+  Enc={symmetric encryption method}
+  Mac={message authentication code}
+  {export flag}
+"
+"57582","","6.4","Medium","192.39.0.2","tcp","3389","SSL Self-Signed Certificate","The SSL certificate chain for this service ends in an unrecognized
+self-signed certificate.","The X.509 certificate chain for this service is not signed by a
+recognized certificate authority.  If the remote host is a public host
+in production, this nullifies the use of SSL as anyone could establish
+a man-in-the-middle attack against the remote host. 
+
+Note that this plugin does not check for certificate chains that end
+in a certificate that is not self-signed, but is signed by an
+unrecognized certificate authority.","Purchase or generate a proper certificate for this service.","","
+The following certificate was found at the top of the certificate
+chain sent by the remote host, but is self-signed and was not
+found in the list of known certificate authorities :
+
+|-Subject : CN=DC1.cwo.net
+"
+"57690","","4.3","Medium","192.39.0.2","tcp","3389","Terminal Services Encryption Level is Medium or Low","The remote host is using weak cryptography.","The remote Terminal Services service is not configured to use strong
+cryptography. 
+
+Using weak cryptography with this service may allow an attacker to
+eavesdrop on the communications more easily and obtain screenshots
+and/or keystrokes.","Change RDP encryption level to one of :
+
+ 3. High
+
+ 4. FIPS Compliant","","
+The terminal services encryption level is set to :
+
+2. Medium"
+"58453","","4.3","Medium","192.39.0.2","tcp","3389","Terminal Services Doesn't Use Network Level Authentication (NLA) Only","The remote Terminal Services doesn't use Network Level Authentication only.","The remote Terminal Services is not configured to use Network Level
+Authentication (NLA) only. NLA uses the Credential Security Support
+Provider (CredSSP) protocol to perform strong server authentication
+either through TLS/SSL or Kerberos mechanisms, which protect against
+man-in-the-middle attacks. In addition to improving authentication, 
+NLA also helps protect the remote computer from malicious users and 
+software by completing user authentication before a full RDP 
+connection is established.","Enable Network Level Authentication (NLA) on the remote RDP server. This is
+generally done on the 'Remote' tab of the 'System' settings on Windows.","http://technet.microsoft.com/en-us/library/cc732713.aspx
+http://www.nessus.org/u?e2628096","Nessus was able to negotiate non-NLA (Network Level Authentication) security."
+"64814","","","None","192.39.0.2","tcp","3389","Terminal Services Use SSL/TLS","The remote Terminal Services use SSL/TLS.","The remote Terminal Services is configured to use SSL/TLS.","n/a","","Subject Name: 
+
+Common Name: DC1.cwo.net
+
+Issuer Name: 
+
+Common Name: DC1.cwo.net
+
+Serial Number: 63 6F 05 54 46 9B FE A5 47 A3 45 9C B1 7A DB 3A 
+
+Version: 3
+
+Signature Algorithm: SHA-1 With RSA Encryption
+
+Not Valid Before: Dec 06 03:05:49 2017 GMT
+Not Valid After: Jun 07 03:05:49 2018 GMT
+
+Public Key Info: 
+
+Algorithm: RSA Encryption
+Key Length: 2048 bits
+Public Key: 00 B4 D8 7F 79 88 2F 6A 0A D4 38 9F 4F E3 C4 F9 8F B6 60 1A 
+            6A D0 5B D4 1D 10 CB 1B F3 09 F3 9B 9D 55 4D E8 86 BA F5 60 
+            0C 6F 0B E7 6E CB D8 14 77 FD 54 0F F3 ED D4 8C AB 2D 2F EF 
+            03 FA 6D 11 32 79 4F C5 9C 67 FA A6 B8 67 D1 15 C5 12 7B 06 
+            D9 B1 EA 17 C8 EF 56 8E E5 23 7F 68 D9 F5 F9 DE 55 63 58 EA 
+            4A F7 AC D9 23 65 90 D8 A3 5C 1A 97 6A EC 9C 87 F7 0C A2 F6 
+            54 37 42 CB A0 5C 2B AB C4 26 D7 6B ED 7E FF 7D 18 9E 55 6C 
+            85 1A 48 69 6C CA 43 55 1C 6C 91 0D 1F 72 D3 98 10 E5 60 E6 
+            00 FE 30 23 DA 2B 33 9F F9 75 E0 57 01 A9 F6 D3 6E A1 39 24 
+            2B 0E DF C4 5B CF 55 3C 8F 70 CA 82 07 C0 38 5D B4 B2 20 E3 
+            3B 8B 5A FC 4F 65 17 F7 6A 1A A4 C9 2F C0 DF 2C 1F F5 DF CB 
+            A5 33 5A BD 07 BB 2E DD 2D EC 2A 09 16 79 05 20 AE 18 25 FD 
+            0E CC AD 73 2D 46 69 33 D8 09 F0 D3 F6 F6 32 47 1F 
+Exponent: 01 00 01 
+
+Signature Length: 256 bytes / 2048 bits
+Signature: 00 4E 1D 83 25 DD DB 32 1B 67 A1 7E BD D7 57 AD 81 F0 82 D8 
+           03 DA 89 30 2C 89 97 C2 8D 82 B7 8E BD 76 EE 26 95 34 6C 63 
+           CA 28 65 EE A1 C6 CB D1 4F D2 60 3C 4D 7F DF 11 74 FE 00 B7 
+           A5 D0 F8 DC 1B 09 60 7A 91 2E 15 0A 07 B8 F8 0C 49 B3 21 BB 
+           84 C1 9D 7F 1A 96 A0 CD E6 D9 EE 8C 02 71 09 BC 7D 11 07 E0 
+           12 C0 C3 DB 50 7F 87 E9 E2 EA 2B 3C 83 19 65 F1 A2 E3 19 AF 
+           08 86 60 11 53 5A DB 38 E9 71 AC 53 AA D6 F5 90 67 75 BB 06 
+           D6 2F F8 DC 7C EF FA E8 A3 D6 5B 81 86 F6 CE 52 DF 5C E9 8E 
+           40 ED 4C CD 6B 3D D0 CB 35 A4 AF 90 FF F2 D4 8E 4D 98 E4 DA 
+           B7 91 63 5C 13 91 0C FB 66 E5 64 C8 58 E7 03 7A E8 E0 34 6D 
+           0D 69 18 F8 45 18 FD E9 B7 12 48 B6 85 5C 20 94 05 7A 82 EB 
+           C4 3A 51 D1 9B D8 DB 32 2A D8 15 FA BC 70 4A CD A3 64 5A 0E 
+           6D 3E 1E 50 BA 09 BD 89 57 CB 54 88 1B 33 94 C0 2C 
+
+Extension: Extended Key Usage (2.5.29.37)
+Critical: 0
+Purpose#1: Web Server Authentication (1.3.6.1.5.5.7.3.1)
+
+
+Extension: Key Usage (2.5.29.15)
+Critical: 0
+Key Usage: Key Encipherment, Data Encipherment
+
+
+"
+"65821","CVE-2013-2566","4.3","Medium","192.39.0.2","tcp","3389","SSL RC4 Cipher Suites Supported","The remote service supports the use of the RC4 cipher.","The remote host supports the use of RC4 in one or more cipher suites.
+The RC4 cipher is flawed in its generation of a pseudo-random stream
+of bytes so that a wide variety of small biases are introduced into
+the stream, decreasing its randomness.
+
+If plaintext is repeatedly encrypted (e.g., HTTP cookies), and an
+attacker is able to obtain many (i.e., tens of millions) ciphertexts,
+the attacker may be able to derive the plaintext.","Reconfigure the affected application, if possible, to avoid use of RC4
+ciphers. Consider using TLS 1.2 with AES-GCM suites subject to browser
+and web server support.","http://www.nessus.org/u?217a3666
+http://cr.yp.to/talks/2013.03.12/slides.pdf
+http://www.isg.rhul.ac.uk/tls/
+http://www.imperva.com/docs/HII_Attacking_SSL_when_using_RC4.pdf","
+List of RC4 cipher suites supported by the remote server :
+
+  High Strength Ciphers (>= 112-bit key)
+
+    TLSv1
+      RC4-MD5                      Kx=RSA         Au=RSA      Enc=RC4(128)             Mac=MD5    
+      RC4-SHA                      Kx=RSA         Au=RSA      Enc=RC4(128)             Mac=SHA1   
+
+The fields above are :
+
+  {OpenSSL ciphername}
+  Kx={key exchange}
+  Au={authentication}
+  Enc={symmetric encryption method}
+  Mac={message authentication code}
+  {export flag}
+"
+"65821","CVE-2015-2808","4.3","Medium","192.39.0.2","tcp","3389","SSL RC4 Cipher Suites Supported","The remote service supports the use of the RC4 cipher.","The remote host supports the use of RC4 in one or more cipher suites.
+The RC4 cipher is flawed in its generation of a pseudo-random stream
+of bytes so that a wide variety of small biases are introduced into
+the stream, decreasing its randomness.
+
+If plaintext is repeatedly encrypted (e.g., HTTP cookies), and an
+attacker is able to obtain many (i.e., tens of millions) ciphertexts,
+the attacker may be able to derive the plaintext.","Reconfigure the affected application, if possible, to avoid use of RC4
+ciphers. Consider using TLS 1.2 with AES-GCM suites subject to browser
+and web server support.","http://www.nessus.org/u?217a3666
+http://cr.yp.to/talks/2013.03.12/slides.pdf
+http://www.isg.rhul.ac.uk/tls/
+http://www.imperva.com/docs/HII_Attacking_SSL_when_using_RC4.pdf","
+List of RC4 cipher suites supported by the remote server :
+
+  High Strength Ciphers (>= 112-bit key)
+
+    TLSv1
+      RC4-MD5                      Kx=RSA         Au=RSA      Enc=RC4(128)             Mac=MD5    
+      RC4-SHA                      Kx=RSA         Au=RSA      Enc=RC4(128)             Mac=SHA1   
+
+The fields above are :
+
+  {OpenSSL ciphername}
+  Kx={key exchange}
+  Au={authentication}
+  Enc={symmetric encryption method}
+  Mac={message authentication code}
+  {export flag}
+"
+"66173","","","None","192.39.0.2","tcp","3389","RDP Screenshot","It is possible to take a screenshot of the remote login screen.","This script attempts to connect to the remote host via RDP (Remote
+Desktop Protocol) and attempts to take a screenshot of the login
+screen.
+
+While this is not a vulnerability by itself, some versions of Windows
+display the names of the users who can connect and which ones are
+connected already.","n/a","","It was possible to gather the following screenshot of the remote login screen."
+"70544","","","None","192.39.0.2","tcp","3389","SSL Cipher Block Chaining Cipher Suites Supported","The remote service supports the use of SSL Cipher Block Chaining
+ciphers, which combine previous blocks with subsequent ones.","The remote host supports the use of SSL ciphers that operate in Cipher
+Block Chaining (CBC) mode.  These cipher suites offer additional
+security over Electronic Codebook (ECB) mode, but have the potential to
+leak information if used improperly.","n/a","http://www.openssl.org/docs/apps/ciphers.html
+http://www.nessus.org/u?cc4a822a
+http://www.openssl.org/~bodo/tls-cbc.txt","
+Here is the list of SSL CBC ciphers supported by the remote server :
+
+  High Strength Ciphers (>= 112-bit key)
+
+    TLSv1
+      ECDHE-RSA-AES128-SHA         Kx=ECDH        Au=RSA      Enc=AES-CBC(128)         Mac=SHA1   
+      ECDHE-RSA-AES256-SHA         Kx=ECDH        Au=RSA      Enc=AES-CBC(256)         Mac=SHA1   
+      DES-CBC3-SHA                 Kx=RSA         Au=RSA      Enc=3DES-CBC(168)        Mac=SHA1   
+      AES128-SHA                   Kx=RSA         Au=RSA      Enc=AES-CBC(128)         Mac=SHA1   
+      AES256-SHA                   Kx=RSA         Au=RSA      Enc=AES-CBC(256)         Mac=SHA1   
+      ECDHE-RSA-AES128-SHA256      Kx=ECDHE       Au=RSA      Enc=AES-CBC(128)         Mac=SHA256  
+      RSA-AES128-SHA256            Kx=RSA         Au=RSA      Enc=AES-CBC(128)         Mac=SHA256  
+      RSA-AES256-SHA256            Kx=RSA         Au=RSA      Enc=AES-CBC(256)         Mac=SHA256  
+
+The fields above are :
+
+  {OpenSSL ciphername}
+  Kx={key exchange}
+  Au={authentication}
+  Enc={symmetric encryption method}
+  Mac={message authentication code}
+  {export flag}
+"
+"79638","CVE-2014-6321","10.0","Critical","192.39.0.2","tcp","3389","MS14-066: Vulnerability in Schannel Could Allow Remote Code Execution (2992611) (uncredentialed check)","The remote Windows host is affected by a remote code execution
+vulnerability.","The remote Windows host is affected by a remote code execution
+vulnerability due to improper processing of packets by the Secure
+Channel (Schannel) security package. An attacker can exploit this
+issue by sending specially crafted packets to a Windows server.
+
+Note that this plugin sends a client Certificate TLS handshake message
+followed by a CertificateVerify message. Some Windows hosts will close
+the connection upon receiving a client certificate for which it did
+not ask for with a CertificateRequest message. In this case, the
+plugin cannot proceed to detect the vulnerability as the
+CertificateVerify message cannot be sent.","Microsoft has released a set of patches for Windows 2003, Vista, 2008,
+7, 2008 R2, 8, 2012, 8.1, and 2012 R2.","https://technet.microsoft.com/library/security/ms14-066",""
