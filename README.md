@@ -12,5 +12,9 @@ Any .csv files within the same directory will attempt to be ingested so keep tha
   
 After entering the file path, Excel will open each .csv and paste the information into the first worksheet in order to manipulate the data. If there are any IP's that do not have an associated hostname, the script will put "[IP]???" into the hostname column.  
   
+
 ### Closing Remarks
 If you have any suggestions please let me know! My next plan with this is to make the script accessible via a .vbs file to eliminate having to copy and paste code for first time use. 
+  
+#### CVE_Testing  
+This branch is for implementing a CVE to Snort Rule script I was working on. The intent is to take all CVE's identified in the Nessus scan, correlate them to a "Snort Community Ruleset" and place that information along with the hosts associated in another sheet.  
