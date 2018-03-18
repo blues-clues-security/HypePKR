@@ -1,5 +1,3 @@
-UNCLASSIFIED
-
 '''Sheet 1'''
 Private Sub button1()
 
@@ -75,6 +73,7 @@ Private Sub ip_list_generate()
 
 End Sub
 '''End Sheet'''
+
 '''Start Workbook'''
 
 Sub delete_all()
@@ -898,10 +897,3 @@ Selection.Font.Size = 14
 Application.ScreenUpdating = True
 
 End Sub
-
-
-
-
-
-
-
